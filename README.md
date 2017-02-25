@@ -1,0 +1,2 @@
+# PassiveComponents
+Проект по СПО
