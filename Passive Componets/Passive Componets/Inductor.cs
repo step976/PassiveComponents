@@ -12,13 +12,7 @@ namespace Passive_Componets
         /// Индуктивность.
         /// </summary>
         private double _value;
-        /// <summary>
-        /// Конструктор индуктора.
-        /// </summary>
-        public Inductor()
-        {
-            _value = 0;
-        }
+
         /// <summary>
         /// Конструктор индуктора.
         /// </summary>
@@ -38,14 +32,11 @@ namespace Passive_Componets
             }
             set
             {
-                    if (value < 0)
+                if (value < 0)
                     {
                         throw new ArgumentException("Некорректно введены данные");
                     }
-                    else
-                    {
-                        _value = value;
-                    }
+                _value = value;
             }
         }
         /// <summary>

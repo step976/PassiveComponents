@@ -12,13 +12,7 @@ namespace Passive_Componets
         /// Емкость кондесатора.
         /// </summary>
         private double _value;
-        /// <summary>
-        /// Конструктор конденсатора.
-        /// </summary>
-        public Capacitor()
-        {
-            _value = 0;
-        }
+
         /// <summary>
         /// Конструктор конденсатора.
         /// </summary>
@@ -42,10 +36,7 @@ namespace Passive_Componets
                 {
                     throw new ArgumentException("Некорректно введены данные");
                 }
-                else
-                {
-                    _value = value;
-                }
+                _value = value;
             }
         }
         /// <summary>

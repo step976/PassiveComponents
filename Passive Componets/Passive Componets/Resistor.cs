@@ -13,13 +13,7 @@ namespace Passive_Componets
         /// Сопротивление.
         /// </summary>
         private double _value;
-        /// <summary>
-        /// Конструктор резистора.
-        /// </summary>
-        public Resistor()
-        {
-            _value = 0;
-        }
+
         /// <summary>
         /// Конструктор резистора.
         /// </summary>
@@ -43,10 +37,7 @@ namespace Passive_Componets
                 {
                    throw new ArgumentException("Некорректно введены данные");
                 }
-                else
-                {
-                    _value = value;
-                }
+                _value = value;
             }
         }
         /// <summary>
