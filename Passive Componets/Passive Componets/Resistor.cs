@@ -35,6 +35,7 @@ namespace Passive_Componets
             {
                 if (_value < 0)
                 {
+                    //NOTE: Какие данные введены некорректно ?
                    throw new ArgumentException("Некорректно введены данные");
                 }
                 _value = value;

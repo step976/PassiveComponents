@@ -32,6 +32,7 @@ namespace Passive_Componets
             }
             set
             {
+                // NOTE: Емкость может быть 0 ?
                 if (value < 0)
                 {
                     throw new ArgumentException("Некорректно введены данные");
@@ -46,6 +47,7 @@ namespace Passive_Componets
         /// <returns>Комплексное сопротивление конденсатора.</returns>
         public Complex GetImpedance(double freq)
         {
+            //NOTE: Что будет если я передам частоту 0 ?
             return new Complex(0, -(1 / ((freq * 2 * Math.PI) * _value)));
         }
 
@@ -55,6 +57,7 @@ namespace Passive_Componets
         /// <returns>Элемент цепи.</returns>
         public new string GetType()
         {
+            //NOTE: Лучше сделать перечисление( enum) с типами, и возвращать конкретный тип
             return "Конденсатор";
         }
     }

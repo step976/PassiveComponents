@@ -32,6 +32,7 @@ namespace Passive_Componets
             }
             set
             {
+                //NOTE: Индуктивность может быть 0 ?
                 if (value < 0)
                     {
                         throw new ArgumentException("Некорректно введены данные");
@@ -46,6 +47,7 @@ namespace Passive_Componets
         /// <returns>Комплексное сопротивление индуктора.</returns>
         public Complex GetImpedance(double freq)
         {
+            //NOTE: Что будет если я напишу частоту = 0
             return  new Complex(0,(freq*2*Math.PI)*_value);
         }
 
