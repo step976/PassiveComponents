@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Passive_Componets;
-using System.Numerics;
 
 namespace PassiveComponentsConsole
 {
-    class Program
+    static class Program
     {
-        static void Main()
+        private static void Main()
         {
             var passiveComponents = new List<IElement>();
 
@@ -26,7 +22,7 @@ namespace PassiveComponentsConsole
 
             passiveComponents.Add(c1);
 
-            foreach (var comp in passiveComponents)
+            foreach (IElement comp in passiveComponents)
             {
                 Console.WriteLine("{0}. Комплексное сопротивление = {1}.",comp.GetType(),comp.GetImpedance(1));
             }
