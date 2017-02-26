@@ -13,15 +13,16 @@ namespace Passive_Componets
         /// <param name="freq">Частота.</param>
         /// <returns>Комплексное число.</returns>
         Complex GetImpedance(double freq);
+
         /// <summary>
         /// Получение элемента цепи.
         /// </summary>
         /// <returns>Элемент цепи.</returns>
-        string GetType();
+        PassiveComponents Type { get; }
+
         /// <summary>
         /// Индуктивность, сопротивление, емкость.
         /// </summary>
         double Value { get; set; }
-
     }
 }

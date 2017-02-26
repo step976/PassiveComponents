@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Numerics;
-
+using static Passive_Componets.PassiveComponents;
 
 namespace Passive_Componets
 {
@@ -35,7 +35,7 @@ namespace Passive_Componets
             {
                 if (_value < 0)
                 {
-                   throw new ArgumentException("Некорректно введены данные");
+                   throw new ArgumentException("Некорректно введено сопротивление");
                 }
                 _value = value;
             }
@@ -53,10 +53,6 @@ namespace Passive_Componets
         /// <summary>
         /// Получение элемента цепи.
         /// </summary>
-        /// <returns>Элемент цепи.</returns>
-        public new string GetType()
-        {
-            return "Резистор";
-        }
+        PassiveComponents IElement.Type => Резистор;
     }
 }

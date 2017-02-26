@@ -14,7 +14,7 @@ namespace PassiveComponentsConsole
 
             var l1=new Inductor(2.8);
 
-            var c1=new Capacitor(6.9);
+            var c1=new Capacitor(3.5);
 
             passiveComponents.Add(r1);
 
@@ -24,7 +24,7 @@ namespace PassiveComponentsConsole
 
             foreach (IElement comp in passiveComponents)
             {
-                Console.WriteLine("{0}. Комплексное сопротивление = {1}.",comp.GetType(),comp.GetImpedance(1));
+                Console.WriteLine("{0}. Комплексное сопротивление = {1}.",comp.Type,comp.GetImpedance(1));
             }
             Console.Read();
         }

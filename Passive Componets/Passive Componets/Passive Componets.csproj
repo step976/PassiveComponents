@@ -44,6 +44,7 @@
     <Compile Include="Capacitor.cs" />
     <Compile Include="IElement.cs" />
     <Compile Include="Inductor.cs" />
+    <Compile Include="PassiveComponents.cs" />
     <Compile Include="Resistor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

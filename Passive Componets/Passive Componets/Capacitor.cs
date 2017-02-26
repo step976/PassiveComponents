@@ -21,6 +21,7 @@ namespace Passive_Componets
         {
             Value = value;
         }
+
         /// <summary>
         /// Емкость кондесатора.
         /// </summary>
@@ -32,13 +33,14 @@ namespace Passive_Componets
             }
             set
             {
-                if (value < 0)
+                if ( value <= 0 )
                 {
-                    throw new ArgumentException("Некорректно введены данные");
+                    throw new ArgumentException("Некорректно введена емкость конденсатора");
                 }
                 _value = value;
             }
         }
+
         /// <summary>
         /// Нахождение комплексого сопротивления для конденсатора.
         /// </summary>
@@ -46,16 +48,16 @@ namespace Passive_Componets
         /// <returns>Комплексное сопротивление конденсатора.</returns>
         public Complex GetImpedance(double freq)
         {
-            return new Complex(0, -(1 / ((freq * 2 * Math.PI) * _value)));
+            if ( freq <= 0 )
+            {
+                throw new ArgumentException("Некорректно введена частота");
+            }
+            return new Complex(0, -(1/((freq*2*Math.PI)*_value)));
         }
 
         /// <summary>
         /// Получение элемента цепи.
         /// </summary>
-        /// <returns>Элемент цепи.</returns>
-        public new string GetType()
-        {
-            return "Конденсатор";
-        }
+        PassiveComponents IElement.Type => PassiveComponents.Конденсатор;
     }
 }

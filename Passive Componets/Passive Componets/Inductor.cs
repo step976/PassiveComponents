@@ -6,7 +6,7 @@ namespace Passive_Componets
     /// <summary>
     /// форма класса индуктивности
     /// </summary>
-    public class Inductor:IElement
+    public class Inductor : IElement
     {
         /// <summary>
         /// Индуктивность.
@@ -21,6 +21,7 @@ namespace Passive_Componets
         {
             Value = value;
         }
+
         /// <summary>
         /// Индуктивность.
         /// </summary>
@@ -32,13 +33,14 @@ namespace Passive_Componets
             }
             set
             {
-                if (value < 0)
-                    {
-                        throw new ArgumentException("Некорректно введены данные");
-                    }
+                if ( value <= 0 )
+                {
+                    throw new ArgumentException("Некорректно введена индуктивность");
+                }
                 _value = value;
             }
         }
+
         /// <summary>
         /// Нахождение комплексого сопротивления для индуктора.
         /// </summary>
@@ -46,16 +48,16 @@ namespace Passive_Componets
         /// <returns>Комплексное сопротивление индуктора.</returns>
         public Complex GetImpedance(double freq)
         {
-            return  new Complex(0,(freq*2*Math.PI)*_value);
+            if (freq <= 0)
+            {
+                throw new ArgumentException("Некорректно введена частота");
+            }
+            return new Complex(0, (freq*2*Math.PI)*_value);
         }
 
         /// <summary>
         /// Получение элемента цепи.
         /// </summary>
-        /// <returns>Элемент цепи.</returns>
-        public new string GetType()
-        {
-            return "Индуктор";
-        }
+        PassiveComponents IElement.Type => PassiveComponents.Индуктор;
     }
 }
