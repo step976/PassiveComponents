@@ -48,16 +48,16 @@ namespace Passive_Componets
         /// <returns>Комплексное сопротивление конденсатора.</returns>
         public Complex GetImpedance(double freq)
         {
-            if ( freq <= 0 )
-            {
-                throw new ArgumentException("Некорректно введена частота");
-            }
-            return new Complex(0, -(1/((freq*2*Math.PI)*_value)));
+            return new Complex(0, -(1 / ((freq * 2 * Math.PI) * _value)));
         }
 
         /// <summary>
         /// Получение элемента цепи.
         /// </summary>
-        PassiveComponents IElement.Type => PassiveComponents.Конденсатор;
+        /// <returns>Элемент цепи.</returns>
+        public new string GetType()
+        {
+            return "Конденсатор";
+        }
     }
 }
