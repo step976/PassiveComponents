@@ -17,7 +17,6 @@ namespace Passive_Componets
         /// <summary>
         /// Получение элемента цепи.
         /// </summary>
-        /// <returns>Элемент цепи.</returns>
         PassiveComponents Type { get; }
 
         /// <summary>
