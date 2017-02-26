@@ -24,6 +24,7 @@ namespace PassiveComponentsConsole
 
             foreach (IElement comp in passiveComponents)
             {
+                //NOTE: Если выводить комплексное число в формате x+iy то будет красивее
                 Console.WriteLine("{0}. Комплексное сопротивление = {1}.",comp.GetType(),comp.GetImpedance(1));
             }
             Console.Read();
