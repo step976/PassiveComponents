@@ -5,7 +5,7 @@ using static Passive_Componets.PassiveComponents;
 namespace Passive_Componets
 {
     /// <summary>
-    /// Форма класса резистора.
+    /// Класс резистора.
     /// </summary>
     public class Resistor : IElement
     {

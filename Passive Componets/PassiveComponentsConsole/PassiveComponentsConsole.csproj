@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Passive Componets\Passive Componets.csproj">
+    <ProjectReference Include="..\Passive Componets\PassiveComponetsModel.csproj">
       <Project>{cdf53759-d94b-40c3-a668-f8d6a8caa20d}</Project>
-      <Name>Passive Componets</Name>
+      <Name>PassiveComponetsModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

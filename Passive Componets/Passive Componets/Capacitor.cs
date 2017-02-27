@@ -4,7 +4,7 @@ using System.Numerics;
 namespace Passive_Componets
 {
     /// <summary>
-    /// Форма класса конденсатора.
+    ///Класс конденсатора.
     /// </summary>
     public class Capacitor : IElement
     {

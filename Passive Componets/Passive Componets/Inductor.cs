@@ -4,7 +4,7 @@ using System.Numerics;
 namespace Passive_Componets
 {
     /// <summary>
-    /// форма класса индуктивности
+    /// Класс катушки индуктивности
     /// </summary>
     public class Inductor : IElement
     {
