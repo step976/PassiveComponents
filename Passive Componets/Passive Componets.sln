@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassiveComponetsModel", "Passive Componets\PassiveComponetsModel.csproj", "{CDF53759-D94B-40C3-A668-F8D6A8CAA20D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassiveComponentsConsole", "PassiveComponentsConsole\PassiveComponentsConsole.csproj", "{FE06405B-946B-49EB-A725-54388BEFA21A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassiveComponentsView", "PassiveComponentsView\PassiveComponentsView.csproj", "{D261321F-0878-4CF4-BF66-1F23B4D9E686}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{CDF53759-D94B-40C3-A668-F8D6A8CAA20D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDF53759-D94B-40C3-A668-F8D6A8CAA20D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDF53759-D94B-40C3-A668-F8D6A8CAA20D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE06405B-946B-49EB-A725-54388BEFA21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE06405B-946B-49EB-A725-54388BEFA21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE06405B-946B-49EB-A725-54388BEFA21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE06405B-946B-49EB-A725-54388BEFA21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D261321F-0878-4CF4-BF66-1F23B4D9E686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D261321F-0878-4CF4-BF66-1F23B4D9E686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D261321F-0878-4CF4-BF66-1F23B4D9E686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D261321F-0878-4CF4-BF66-1F23B4D9E686}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
