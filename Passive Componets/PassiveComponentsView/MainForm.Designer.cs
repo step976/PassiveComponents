@@ -67,13 +67,13 @@
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.ВыходToolStripMenuItem_Click);
             // 
@@ -110,11 +110,11 @@
             // impedance
             // 
             this.impedance.AutoSize = true;
-            this.impedance.Location = new System.Drawing.Point(292, 27);
+            this.impedance.Location = new System.Drawing.Point(259, 27);
             this.impedance.Name = "impedance";
-            this.impedance.Size = new System.Drawing.Size(59, 13);
+            this.impedance.Size = new System.Drawing.Size(156, 13);
             this.impedance.TabIndex = 1;
-            this.impedance.Text = "Импеданс";
+            this.impedance.Text = "Комплексное сопротивление";
             // 
             // rating
             // 
