@@ -49,7 +49,7 @@ namespace PassiveComponentsView
 
         private void ВыходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void DataGridView1CellContentClick(object sender, DataGridViewCellEventArgs e)
