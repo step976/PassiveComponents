@@ -51,5 +51,10 @@ namespace PassiveComponentsView
         {
 
         }
+
+        private void DataGridView1CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
