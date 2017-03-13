@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Passive_Componets;
 
 namespace PassiveComponentsView
 {
     public partial class MainForm : Form
     {
+        private List<IElement> Elements { get; set; }
         public MainForm()
         {
+            Elements = new List<IElement>();
             InitializeComponent();
         }
 
@@ -22,32 +25,13 @@ namespace PassiveComponentsView
 
         }
 
-        private void ВыходToolStripMenuItemClick(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void Label1Click(object sender, EventArgs e)
+        private void FileToolStripMenuItemClick(object sender, EventArgs e)
         {
 
         }
 
-        private void Label3Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button1Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ФайлToolStripMenuItemClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ВыходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -55,6 +39,15 @@ namespace PassiveComponentsView
         private void DataGridView1CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void AddElement_Click(object sender, EventArgs e)
+        {
+            var form = new AddForm();
+            if ( form.ShowDialog() == DialogResult.OK )
+            {
+                
+            }
         }
     }
 }

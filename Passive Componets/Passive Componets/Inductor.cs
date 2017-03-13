@@ -48,7 +48,7 @@ namespace Passive_Componets
         /// <returns>Комплексное сопротивление индуктора.</returns>
         public Complex GetImpedance(double freq)
         {
-            if (freq <= 0)
+            if ( freq <= 0 )
             {
                 throw new ArgumentException("Некорректно введена частота");
             }

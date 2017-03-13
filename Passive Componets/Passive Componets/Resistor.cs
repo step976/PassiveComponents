@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+
 using static Passive_Componets.PassiveComponents;
 
 namespace Passive_Componets
@@ -22,10 +23,11 @@ namespace Passive_Componets
         {
             Value = value;
         }
+
         /// <summary>
         /// Сопротивление.
         /// </summary>
-        public  double Value
+        public double Value
         {
             get
             {
@@ -33,13 +35,14 @@ namespace Passive_Componets
             }
             set
             {
-                if (_value < 0)
+                if ( _value < 0 )
                 {
-                   throw new ArgumentException("Некорректно введено сопротивление");
+                    throw new ArgumentException("Некорректно введено сопротивление");
                 }
                 _value = value;
             }
         }
+
         /// <summary>
         /// Нахождение комплексого сопротивления для резистора.
         /// </summary>
