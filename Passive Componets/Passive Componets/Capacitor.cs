@@ -14,12 +14,20 @@ namespace Passive_Componets
         private double _value;
 
         /// <summary>
-        /// Конструктор конденсатора.
+        /// Конструктор конденсатора с параметром.
         /// </summary>
         /// <param name="value">Емкость конденсатора.</param>
         public Capacitor(double value)
         {
             Value = value;
+        }
+
+        /// <summary>
+        /// Конструктор конденсатора по умолчанию.
+        /// </summary>
+        public Capacitor()
+        {
+            
         }
 
         /// <summary>
@@ -33,11 +41,14 @@ namespace Passive_Componets
             }
             set
             {
-                if ( value <= 0 )
+                if ( value >= 0 )
+                {
+                    _value = value;
+                }
+                else
                 {
                     throw new ArgumentException("Некорректно введена емкость конденсатора");
                 }
-                _value = value;
             }
         }
 

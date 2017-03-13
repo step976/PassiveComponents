@@ -43,10 +43,12 @@ namespace PassiveComponentsView
 
         private void AddElement_Click(object sender, EventArgs e)
         {
+           
             var form = new AddForm();
             if ( form.ShowDialog() == DialogResult.OK )
             {
-                
+                IElement element = form.Element;
+                Elements.Add(element);
             }
         }
     }

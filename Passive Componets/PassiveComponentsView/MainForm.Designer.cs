@@ -33,16 +33,16 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.RemoveElement = new System.Windows.Forms.Button();
-            this.AddElement = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ModifyElement = new System.Windows.Forms.Button();
+            this.elementDataGridView = new System.Windows.Forms.DataGridView();
             this.NameElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nominal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Impedance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModifyElement = new System.Windows.Forms.Button();
+            this.RemoveElement = new System.Windows.Forms.Button();
+            this.AddElement = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -68,7 +68,7 @@
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
             // 
@@ -81,7 +81,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ModifyElement);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.elementDataGridView);
             this.groupBox1.Controls.Add(this.RemoveElement);
             this.groupBox1.Controls.Add(this.AddElement);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
@@ -89,6 +89,42 @@
             this.groupBox1.Size = new System.Drawing.Size(495, 238);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // ModifyElement
+            // 
+            this.ModifyElement.Location = new System.Drawing.Point(106, 206);
+            this.ModifyElement.Name = "ModifyElement";
+            this.ModifyElement.Size = new System.Drawing.Size(75, 23);
+            this.ModifyElement.TabIndex = 4;
+            this.ModifyElement.Text = "Modify";
+            this.ModifyElement.UseVisualStyleBackColor = true;
+            // 
+            // elementDataGridView
+            // 
+            this.elementDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.elementDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameElement,
+            this.Nominal,
+            this.Impedance});
+            this.elementDataGridView.Location = new System.Drawing.Point(6, 10);
+            this.elementDataGridView.Name = "elementDataGridView";
+            this.elementDataGridView.Size = new System.Drawing.Size(452, 150);
+            this.elementDataGridView.TabIndex = 3;
+            // 
+            // NameElement
+            // 
+            this.NameElement.HeaderText = "Name Element";
+            this.NameElement.Name = "NameElement";
+            // 
+            // Nominal
+            // 
+            this.Nominal.HeaderText = "Nominal";
+            this.Nominal.Name = "Nominal";
+            // 
+            // Impedance
+            // 
+            this.Impedance.HeaderText = "Impedance";
+            this.Impedance.Name = "Impedance";
             // 
             // RemoveElement
             // 
@@ -109,42 +145,6 @@
             this.AddElement.UseVisualStyleBackColor = true;
             this.AddElement.Click += new System.EventHandler(this.AddElement_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameElement,
-            this.Nominal,
-            this.Impedance});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 10);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(452, 150);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // NameElement
-            // 
-            this.NameElement.HeaderText = "Name Element";
-            this.NameElement.Name = "NameElement";
-            // 
-            // Nominal
-            // 
-            this.Nominal.HeaderText = "Nominal";
-            this.Nominal.Name = "Nominal";
-            // 
-            // Impedance
-            // 
-            this.Impedance.HeaderText = "Impedance";
-            this.Impedance.Name = "Impedance";
-            // 
-            // ModifyElement
-            // 
-            this.ModifyElement.Location = new System.Drawing.Point(106, 206);
-            this.ModifyElement.Name = "ModifyElement";
-            this.ModifyElement.Size = new System.Drawing.Size(75, 23);
-            this.ModifyElement.TabIndex = 4;
-            this.ModifyElement.Text = "Modify";
-            this.ModifyElement.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,7 +159,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,7 +174,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button RemoveElement;
         private System.Windows.Forms.Button AddElement;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView elementDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameElement;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nominal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Impedance;

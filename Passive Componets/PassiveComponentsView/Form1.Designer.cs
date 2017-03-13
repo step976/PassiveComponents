@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxSelect = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNameElement = new System.Windows.Forms.TextBox();
+            this.textBoxNominal = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.SelectElement = new System.Windows.Forms.Label();
-            this.comboBoxSelect = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,8 +45,8 @@
             this.groupBox1.Controls.Add(this.comboBoxSelect);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxNameElement);
+            this.groupBox1.Controls.Add(this.textBoxNominal);
             this.groupBox1.Controls.Add(this.buttonCancel);
             this.groupBox1.Controls.Add(this.buttonOK);
             this.groupBox1.Controls.Add(this.SelectElement);
@@ -56,10 +56,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // comboBoxSelect
+            // 
+            this.comboBoxSelect.FormattingEnabled = true;
+            this.comboBoxSelect.Items.AddRange(new object[] {
+            "Resistor",
+            "Capacitor",
+            "Inductor"});
+            this.comboBoxSelect.Location = new System.Drawing.Point(15, 43);
+            this.comboBoxSelect.Name = "comboBoxSelect";
+            this.comboBoxSelect.Size = new System.Drawing.Size(158, 21);
+            this.comboBoxSelect.TabIndex = 9;
+            this.comboBoxSelect.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSelectSelectedIndexChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 143);
+            this.label2.Location = new System.Drawing.Point(14, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 8;
@@ -74,19 +87,19 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Nominal";
             // 
-            // textBox2
+            // textBoxNameElement
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 168);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(158, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxNameElement.Location = new System.Drawing.Point(15, 168);
+            this.textBoxNameElement.Name = "textBoxNameElement";
+            this.textBoxNameElement.Size = new System.Drawing.Size(158, 20);
+            this.textBoxNameElement.TabIndex = 6;
             // 
-            // textBox1
+            // textBoxNominal
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxNominal.Location = new System.Drawing.Point(15, 109);
+            this.textBoxNominal.Name = "textBoxNominal";
+            this.textBoxNominal.Size = new System.Drawing.Size(158, 20);
+            this.textBoxNominal.TabIndex = 5;
             // 
             // buttonCancel
             // 
@@ -96,6 +109,7 @@
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancelClick);
             // 
             // buttonOK
             // 
@@ -105,6 +119,7 @@
             this.buttonOK.TabIndex = 3;
             this.buttonOK.Text = "Ok";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.ButtonOkClick);
             // 
             // SelectElement
             // 
@@ -114,15 +129,6 @@
             this.SelectElement.Size = new System.Drawing.Size(78, 13);
             this.SelectElement.TabIndex = 2;
             this.SelectElement.Text = "Select Element";
-            // 
-            // comboBoxSelect
-            // 
-            this.comboBoxSelect.FormattingEnabled = true;
-            this.comboBoxSelect.Location = new System.Drawing.Point(15, 43);
-            this.comboBoxSelect.Name = "comboBoxSelect";
-            this.comboBoxSelect.Size = new System.Drawing.Size(158, 21);
-            this.comboBoxSelect.TabIndex = 9;
-            this.comboBoxSelect.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSelectSelectedIndexChanged);
             // 
             // AddForm
             // 
@@ -147,8 +153,8 @@
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNameElement;
+        private System.Windows.Forms.TextBox textBoxNominal;
         private System.Windows.Forms.ComboBox comboBoxSelect;
     }
 }

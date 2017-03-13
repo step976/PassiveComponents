@@ -16,12 +16,20 @@ namespace Passive_Componets
         private double _value;
 
         /// <summary>
-        /// Конструктор резистора.
+        /// Конструктор резистора c параметром.
         /// </summary>
         /// <param name="value">Сопротивление.</param>
         public Resistor(double value)
         {
             Value = value;
+        }
+
+        /// <summary>
+        /// Конструктор резистора по умолчанию.
+        /// </summary>
+        public Resistor()
+        {
+            
         }
 
         /// <summary>
@@ -35,11 +43,15 @@ namespace Passive_Componets
             }
             set
             {
-                if ( _value < 0 )
+                if ( _value >= 0 )
+                {
+                    _value = value;  
+                }
+                else
                 {
                     throw new ArgumentException("Некорректно введено сопротивление");
                 }
-                _value = value;
+               
             }
         }
 

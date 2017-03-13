@@ -14,12 +14,19 @@ namespace Passive_Componets
         private double _value;
 
         /// <summary>
-        /// Конструктор индуктора.
+        /// Конструктор катушки индуктивности с параметром.
         /// </summary>
         /// <param name="value">Индуктивность.</param>
         public Inductor(double value)
         {
             Value = value;
+        }
+        /// <summary>
+        /// Конструктор катукшки индуктивности по умолчанию.
+        /// </summary>
+        public Inductor()
+        {
+            
         }
 
         /// <summary>
@@ -33,19 +40,22 @@ namespace Passive_Componets
             }
             set
             {
-                if ( value <= 0 )
+                if ( value >= 0 )
+                {
+                    _value = value;
+                }
+                else
                 {
                     throw new ArgumentException("Некорректно введена индуктивность");
                 }
-                _value = value;
             }
         }
 
         /// <summary>
-        /// Нахождение комплексого сопротивления для индуктора.
+        /// Нахождение комплексого сопротивления для катушки идуктивности.
         /// </summary>
         /// <param name="freq">Частота.</param>
-        /// <returns>Комплексное сопротивление индуктора.</returns>
+        /// <returns>Комплексное сопротивление катушки идуктивности.</returns>
         public Complex GetImpedance(double freq)
         {
             if ( freq <= 0 )

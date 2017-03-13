@@ -30,5 +30,43 @@ namespace PassiveComponentsView
         {
 
         }
+
+        private void ButtonOkClick(object sender, EventArgs e)
+        {
+            if (comboBoxSelect.SelectedIndex == 0)
+            {
+                var resistor = new Resistor
+                {
+                    Value = Convert.ToDouble(textBoxNominal.Text)
+                };
+                Element = resistor;
+            }
+            if (comboBoxSelect.SelectedIndex == 1)
+            {
+                var capacitor = new Capacitor
+                {
+                    Value = Convert.ToDouble(textBoxNominal.Text)
+                };
+                Element = capacitor;
+            }
+            if (comboBoxSelect.SelectedIndex == 2)
+            {
+                var inductor = new Inductor
+                {
+                    Value = Convert.ToDouble(textBoxNominal.Text)
+                };
+                Element = inductor;
+            }
+
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void ButtonCancelClick(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
     }
+
 }
