@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Numerics;
 
-using static Passive_Componets.PassiveComponents;
-
 namespace Passive_Componets
 {
     /// <summary>
@@ -29,7 +27,6 @@ namespace Passive_Componets
         /// </summary>
         public Resistor()
         {
-            
         }
 
         /// <summary>
@@ -45,13 +42,12 @@ namespace Passive_Componets
             {
                 if ( _value >= 0 )
                 {
-                    _value = value;  
+                    _value = value;
                 }
                 else
                 {
                     throw new ArgumentException("Некорректно введено сопротивление");
                 }
-               
             }
         }
 
@@ -66,8 +62,8 @@ namespace Passive_Componets
         }
 
         /// <summary>
-        /// Получение элемента цепи.
+        /// Уникальное имя для элемента списка.
         /// </summary>
-        PassiveComponents IElement.Type => Резистор;
+        public string UniqueName { get; set; }
     }
 }

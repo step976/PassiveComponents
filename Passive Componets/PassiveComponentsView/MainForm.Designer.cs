@@ -33,6 +33,9 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CalculateButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.AngularFreq = new System.Windows.Forms.TextBox();
             this.ModifyElement = new System.Windows.Forms.Button();
             this.elementDataGridView = new System.Windows.Forms.DataGridView();
             this.NameElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +83,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CalculateButton);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.AngularFreq);
             this.groupBox1.Controls.Add(this.ModifyElement);
             this.groupBox1.Controls.Add(this.elementDataGridView);
             this.groupBox1.Controls.Add(this.RemoveElement);
@@ -90,6 +96,32 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // CalculateButton
+            // 
+            this.CalculateButton.Location = new System.Drawing.Point(414, 203);
+            this.CalculateButton.Name = "CalculateButton";
+            this.CalculateButton.Size = new System.Drawing.Size(75, 23);
+            this.CalculateButton.TabIndex = 7;
+            this.CalculateButton.Text = "Calculate";
+            this.CalculateButton.UseVisualStyleBackColor = true;
+            this.CalculateButton.Click += new System.EventHandler(this.CalculateButtonClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(295, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Angular Freq";
+            // 
+            // AngularFreq
+            // 
+            this.AngularFreq.Location = new System.Drawing.Point(298, 206);
+            this.AngularFreq.Name = "AngularFreq";
+            this.AngularFreq.Size = new System.Drawing.Size(100, 20);
+            this.AngularFreq.TabIndex = 5;
+            // 
             // ModifyElement
             // 
             this.ModifyElement.Location = new System.Drawing.Point(106, 206);
@@ -98,6 +130,7 @@
             this.ModifyElement.TabIndex = 4;
             this.ModifyElement.Text = "Modify";
             this.ModifyElement.UseVisualStyleBackColor = true;
+            this.ModifyElement.Click += new System.EventHandler(this.ModifyElementClick);
             // 
             // elementDataGridView
             // 
@@ -108,6 +141,7 @@
             this.Impedance});
             this.elementDataGridView.Location = new System.Drawing.Point(6, 10);
             this.elementDataGridView.Name = "elementDataGridView";
+            this.elementDataGridView.ReadOnly = true;
             this.elementDataGridView.Size = new System.Drawing.Size(452, 150);
             this.elementDataGridView.TabIndex = 3;
             // 
@@ -115,25 +149,29 @@
             // 
             this.NameElement.HeaderText = "Name Element";
             this.NameElement.Name = "NameElement";
+            this.NameElement.ReadOnly = true;
             // 
             // Nominal
             // 
             this.Nominal.HeaderText = "Nominal";
             this.Nominal.Name = "Nominal";
+            this.Nominal.ReadOnly = true;
             // 
             // Impedance
             // 
             this.Impedance.HeaderText = "Impedance";
             this.Impedance.Name = "Impedance";
+            this.Impedance.ReadOnly = true;
             // 
             // RemoveElement
             // 
-            this.RemoveElement.Location = new System.Drawing.Point(223, 206);
+            this.RemoveElement.Location = new System.Drawing.Point(197, 206);
             this.RemoveElement.Name = "RemoveElement";
             this.RemoveElement.Size = new System.Drawing.Size(75, 23);
             this.RemoveElement.TabIndex = 2;
             this.RemoveElement.Text = "Remove";
             this.RemoveElement.UseVisualStyleBackColor = true;
+            this.RemoveElement.Click += new System.EventHandler(this.RemoveElementClick);
             // 
             // AddElement
             // 
@@ -159,6 +197,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,6 +218,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nominal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Impedance;
         private System.Windows.Forms.Button ModifyElement;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox AngularFreq;
+        private System.Windows.Forms.Button CalculateButton;
     }
 }
 

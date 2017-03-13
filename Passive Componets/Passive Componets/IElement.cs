@@ -15,13 +15,13 @@ namespace Passive_Componets
         Complex GetImpedance(double freq);
 
         /// <summary>
-        /// Получение элемента цепи.
-        /// </summary>
-        PassiveComponents Type { get; }
-
-        /// <summary>
         /// Индуктивность, сопротивление, емкость.
         /// </summary>
         double Value { get; set; }
+
+        /// <summary>
+        /// Уникальное имя для элемента списка.
+        /// </summary>
+        string UniqueName { get; set; }
     }
 }

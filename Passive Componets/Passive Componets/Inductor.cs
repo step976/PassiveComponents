@@ -21,12 +21,12 @@ namespace Passive_Componets
         {
             Value = value;
         }
+
         /// <summary>
         /// Конструктор катукшки индуктивности по умолчанию.
         /// </summary>
         public Inductor()
         {
-            
         }
 
         /// <summary>
@@ -66,8 +66,8 @@ namespace Passive_Componets
         }
 
         /// <summary>
-        /// Получение элемента цепи.
+        /// Уникальное имя для элемента списка.
         /// </summary>
-        PassiveComponents IElement.Type => PassiveComponents.Индуктор;
+        public string UniqueName { get; set; }
     }
 }
