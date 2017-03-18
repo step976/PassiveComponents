@@ -32,7 +32,7 @@
             this.ElementComboBoxSelect = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.NameElementtextBox = new System.Windows.Forms.TextBox();
+            this.NameElementTextBox = new System.Windows.Forms.TextBox();
             this.NominalTextBox = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.groupBox1.Controls.Add(this.ElementComboBoxSelect);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.NameElementtextBox);
+            this.groupBox1.Controls.Add(this.NameElementTextBox);
             this.groupBox1.Controls.Add(this.NominalTextBox);
             this.groupBox1.Controls.Add(this.buttonCancel);
             this.groupBox1.Controls.Add(this.buttonOK);
@@ -90,12 +90,12 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Введите его номинал";
             // 
-            // NameElementtextBox
+            // NameElementTextBox
             // 
-            this.NameElementtextBox.Location = new System.Drawing.Point(15, 168);
-            this.NameElementtextBox.Name = "NameElementtextBox";
-            this.NameElementtextBox.Size = new System.Drawing.Size(158, 20);
-            this.NameElementtextBox.TabIndex = 6;
+            this.NameElementTextBox.Location = new System.Drawing.Point(15, 168);
+            this.NameElementTextBox.Name = "NameElementTextBox";
+            this.NameElementTextBox.Size = new System.Drawing.Size(158, 20);
+            this.NameElementTextBox.TabIndex = 6;
             // 
             // NominalTextBox
             // 
@@ -156,7 +156,7 @@
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox NameElementtextBox;
+        private System.Windows.Forms.TextBox NameElementTextBox;
         private System.Windows.Forms.TextBox NominalTextBox;
         private System.Windows.Forms.ComboBox ElementComboBoxSelect;
     }

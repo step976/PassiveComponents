@@ -18,7 +18,7 @@ namespace PassiveComponentsView
                     var resistor = new Resistor
                                    {
                                            Value = Convert.ToDouble(NominalTextBox.Text),
-                                           UniqueName = Convert.ToString(NameElementtextBox.Text)
+                                           UniqueName = Convert.ToString(NameElementTextBox.Text)
                                    };
                     unit = resistor;
                 }
@@ -27,7 +27,7 @@ namespace PassiveComponentsView
                     var capacitor = new Capacitor
                                     {
                                             Value = Convert.ToDouble(NominalTextBox.Text),
-                                            UniqueName = Convert.ToString(NameElementtextBox.Text)
+                                            UniqueName = Convert.ToString(NameElementTextBox.Text)
                                     };
                     unit = capacitor;
                 }
@@ -36,7 +36,7 @@ namespace PassiveComponentsView
                     var inductor = new Inductor
                                    {
                                            Value = Convert.ToDouble(NominalTextBox.Text),
-                                           UniqueName = Convert.ToString(NameElementtextBox.Text)
+                                           UniqueName = Convert.ToString(NameElementTextBox.Text)
                                    };
                     unit = inductor;
                 }
@@ -74,6 +74,10 @@ namespace PassiveComponentsView
 
         private void ButtonOkClick(object sender, EventArgs e)
         {
+            if ( ElementComboBoxSelect.SelectedIndex == -1 )
+            {
+                throw new ArgumentException("Не выбран ни один элемент");
+            }
             DialogResult = DialogResult.OK;
             Close();
         }

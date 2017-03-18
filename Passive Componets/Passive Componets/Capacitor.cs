@@ -69,5 +69,6 @@ namespace Passive_Componets
         /// Уникальное имя для элемента списка.
         /// </summary>
         public string UniqueName { get; set; }
+       
     }
 }
