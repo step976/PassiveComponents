@@ -112,7 +112,7 @@
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancelClick);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // buttonOK
             // 
@@ -122,7 +122,7 @@
             this.buttonOK.TabIndex = 3;
             this.buttonOK.Text = "Ok";
             this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.ButtonOkClick);
+            this.buttonOK.Click += new System.EventHandler(this.ButtonOk_Click);
             // 
             // SelectElement
             // 

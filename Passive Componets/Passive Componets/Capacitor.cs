@@ -3,9 +3,13 @@ using System.Numerics;
 
 namespace Passive_Componets
 {
+
+
     /// <summary>
     ///Класс конденсатора.
     /// </summary>
+
+    [SerializableAttribute]
     public class Capacitor : IElement
     {
         /// <summary>

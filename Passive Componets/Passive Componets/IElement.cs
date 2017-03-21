@@ -5,6 +5,8 @@ namespace Passive_Componets
     /// <summary>
     /// Интерфейс элементов.
     /// </summary>
+    
+
     public interface IElement
     {
         /// <summary>

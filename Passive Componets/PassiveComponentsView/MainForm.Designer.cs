@@ -30,6 +30,8 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -38,11 +40,11 @@
             this.AngularFreqTextBox = new System.Windows.Forms.TextBox();
             this.ModifyElementButton = new System.Windows.Forms.Button();
             this.elementDataGridView = new System.Windows.Forms.DataGridView();
-            this.RemoveElementButton = new System.Windows.Forms.Button();
-            this.AddElementButton = new System.Windows.Forms.Button();
             this.NameElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nominal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Impedance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemoveElementButton = new System.Windows.Forms.Button();
+            this.AddElementButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
@@ -62,18 +64,34 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.открытьToolStripMenuItem,
+            this.сохранитьToolStripMenuItem,
             this.ExitToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.FileToolStripMenuItem.Text = "Файл";
-            this.FileToolStripMenuItem.Click += new System.EventHandler(this.FileToolStripMenuItemClick);
+            this.FileToolStripMenuItem.Click += new System.EventHandler(this.FileToolStripMenuItem_Click);
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ExitToolStripMenuItem.Text = "Выход";
-            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // HelpToolStripMenuItem
             // 
@@ -106,7 +124,7 @@
             this.CalculateButton.TabIndex = 7;
             this.CalculateButton.Text = "Вычислить";
             this.CalculateButton.UseVisualStyleBackColor = true;
-            this.CalculateButton.Click += new System.EventHandler(this.CalculateButtonClick);
+            this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
             // label1
             // 
@@ -135,14 +153,13 @@
             this.ModifyElementButton.TabIndex = 4;
             this.ModifyElementButton.Text = "Изменить элемент";
             this.ModifyElementButton.UseVisualStyleBackColor = true;
-            this.ModifyElementButton.Click += new System.EventHandler(this.ModifyElementClick);
+            this.ModifyElementButton.Click += new System.EventHandler(this.ModifyElement_Click);
             // 
             // elementDataGridView
             // 
             this.elementDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.elementDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.elementDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.elementDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.elementDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -152,30 +169,8 @@
             this.elementDataGridView.Location = new System.Drawing.Point(12, 19);
             this.elementDataGridView.Name = "elementDataGridView";
             this.elementDataGridView.ReadOnly = true;
-            this.elementDataGridView.Size = new System.Drawing.Size(486, 127);
+            this.elementDataGridView.Size = new System.Drawing.Size(421, 129);
             this.elementDataGridView.TabIndex = 3;
-            // 
-            // RemoveElementButton
-            // 
-            this.RemoveElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RemoveElementButton.Location = new System.Drawing.Point(197, 190);
-            this.RemoveElementButton.Name = "RemoveElementButton";
-            this.RemoveElementButton.Size = new System.Drawing.Size(75, 39);
-            this.RemoveElementButton.TabIndex = 2;
-            this.RemoveElementButton.Text = "Удалить элемент";
-            this.RemoveElementButton.UseVisualStyleBackColor = true;
-            this.RemoveElementButton.Click += new System.EventHandler(this.RemoveElementClick);
-            // 
-            // AddElementButton
-            // 
-            this.AddElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddElementButton.Location = new System.Drawing.Point(6, 190);
-            this.AddElementButton.Name = "AddElementButton";
-            this.AddElementButton.Size = new System.Drawing.Size(75, 39);
-            this.AddElementButton.TabIndex = 1;
-            this.AddElementButton.Text = "Добавить элемент";
-            this.AddElementButton.UseVisualStyleBackColor = true;
-            this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
             // 
             // NameElement
             // 
@@ -195,6 +190,28 @@
             this.Impedance.Name = "Impedance";
             this.Impedance.ReadOnly = true;
             // 
+            // RemoveElementButton
+            // 
+            this.RemoveElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveElementButton.Location = new System.Drawing.Point(197, 190);
+            this.RemoveElementButton.Name = "RemoveElementButton";
+            this.RemoveElementButton.Size = new System.Drawing.Size(75, 39);
+            this.RemoveElementButton.TabIndex = 2;
+            this.RemoveElementButton.Text = "Удалить элемент";
+            this.RemoveElementButton.UseVisualStyleBackColor = true;
+            this.RemoveElementButton.Click += new System.EventHandler(this.RemoveElement_Click);
+            // 
+            // AddElementButton
+            // 
+            this.AddElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddElementButton.Location = new System.Drawing.Point(6, 190);
+            this.AddElementButton.Name = "AddElementButton";
+            this.AddElementButton.Size = new System.Drawing.Size(75, 39);
+            this.AddElementButton.TabIndex = 1;
+            this.AddElementButton.Text = "Добавить элемент";
+            this.AddElementButton.UseVisualStyleBackColor = true;
+            this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,7 +222,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Главная форма";
-            this.Load += new System.EventHandler(this.Form1Load);
+            this.Load += new System.EventHandler(this.MainFormLoad);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -233,6 +250,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameElement;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nominal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Impedance;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
     }
 }
 

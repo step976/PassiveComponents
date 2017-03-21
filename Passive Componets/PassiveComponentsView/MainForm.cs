@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
 using Passive_Componets;
@@ -12,19 +14,23 @@ namespace PassiveComponentsView
 
         public MainForm()
         {
-            Elements = new List<IElement>();
             InitializeComponent();
+            CenterToScreen();
+            Elements = new List<IElement>();
+
+            UpdateGrid();
         }
 
-        private void Form1Load(object sender, EventArgs e)
+        private void MainFormLoad(object sender, EventArgs e)
+        {
+            AngularFreqTextBox.Text = 1.ToString();
+        }
+
+        private void FileToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
 
-        private void FileToolStripMenuItemClick(object sender, EventArgs e)
-        {
-        }
-
-        private void ExitToolStripMenuItemClick(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -36,20 +42,21 @@ namespace PassiveComponentsView
             {
                 IElement element = form.Element;
                 Elements.Add(element);
-                elementDataGridView.Rows.Add(element.UniqueName,
+                elementDataGridView.Rows.Add(
+                        element.UniqueName,
                         element.Value,
                         element.GetImpedance(Convert.ToDouble(AngularFreqTextBox.Text)));
             }
         }
 
-        private void RemoveElementClick(object sender, EventArgs e)
+        private void RemoveElement_Click(object sender, EventArgs e)
         {
             int index = elementDataGridView.SelectedCells[0].RowIndex;
             elementDataGridView.Rows.RemoveAt(index);
             Elements.RemoveAt(index);
         }
 
-        private void CalculateButtonClick(object sender, EventArgs e)
+        private void CalculateButton_Click(object sender, EventArgs e)
         {
             for (var i = 0; i < Elements.Count; i++)
             {
@@ -57,7 +64,7 @@ namespace PassiveComponentsView
             }
         }
 
-        private void ModifyElementClick(object sender, EventArgs e)
+        private void ModifyElement_Click(object sender, EventArgs e)
         {
             int index = elementDataGridView.SelectedCells[0].RowIndex;
             var form = new AddForm();
@@ -72,5 +79,56 @@ namespace PassiveComponentsView
                     elemnt.Value,
                     elemnt.GetImpedance(Convert.ToDouble(AngularFreqTextBox.Text)));
         }
-    }
+
+        private void UpdateGrid()
+        {
+            elementDataGridView.Rows.Add(Element.name);
+            elementDataGridView.Rows.Add(Element.nominal);
+            elementDataGridView.Rows.Add(Element.impedance);
+        }
+
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var mySaveFileDialog = new SaveFileDialog
+                                   {
+                                           InitialDirectory = ".",
+                                           Filter = @"element files (*.elm)|*.elm|All files(*.*)|*.*",
+                                           FilterIndex = 1,
+                                           RestoreDirectory = true,
+                                           FileName = "elementDoc"
+                                   };
+
+            if ( mySaveFileDialog.ShowDialog() == DialogResult.OK )
+            {
+                Stream myStream = mySaveFileDialog.OpenFile();
+
+                var serializer = new BinaryFormatter();
+                serializer.Serialize(myStream, Elements);
+                myStream.Close();
+            }
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var myOpenFileDialog = new OpenFileDialog
+                                   {
+                                           InitialDirectory = ".",
+                                           Filter = @"element files (*.elm)|*.elm|All files(*.*)|*.*",
+                                           FilterIndex = 1,
+                                           RestoreDirectory = true
+                                   };
+
+            if ( myOpenFileDialog.ShowDialog() == DialogResult.OK )
+            {
+                Elements.Clear();
+
+                Stream stream = myOpenFileDialog.OpenFile();
+                var deserializer = new BinaryFormatter();
+                Elements = deserializer.Deserialize(stream) as List<IElement>;
+                stream.Close();
+                elementDataGridView.Update();
+
+            }
+        }
+    }   
 }

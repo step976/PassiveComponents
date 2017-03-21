@@ -6,6 +6,10 @@ namespace Passive_Componets
     /// <summary>
     /// Класс резистора.
     /// </summary>
+    
+
+    [SerializableAttribute]
+
     public class Resistor : IElement
     {
         /// <summary>

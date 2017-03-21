@@ -6,6 +6,9 @@ namespace Passive_Componets
     /// <summary>
     /// Класс катушки индуктивности
     /// </summary>
+    
+    [SerializableAttribute]
+
     public class Inductor : IElement
     {
         /// <summary>

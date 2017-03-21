@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
-
 using Passive_Componets;
 
 namespace PassiveComponentsView
@@ -22,7 +21,7 @@ namespace PassiveComponentsView
                                    };
                     unit = resistor;
                 }
-                if ( ElementComboBoxSelect.SelectedIndex == 1 )
+                else if ( ElementComboBoxSelect.SelectedIndex == 1 )
                 {
                     var capacitor = new Capacitor
                                     {
@@ -31,7 +30,7 @@ namespace PassiveComponentsView
                                     };
                     unit = capacitor;
                 }
-                if ( ElementComboBoxSelect.SelectedIndex == 2 )
+                else if ( ElementComboBoxSelect.SelectedIndex == 2 )
                 {
                     var inductor = new Inductor
                                    {
@@ -46,15 +45,24 @@ namespace PassiveComponentsView
             {
                 if ( value is Resistor )
                 {
-                    NominalTextBox.Text = value.Value.ToString(CultureInfo.InvariantCulture);
+                    var res = (Resistor)value;
+                    ElementComboBoxSelect.SelectedIndex = 0;
+                    NominalTextBox.Text = res.Value.ToString(CultureInfo.InvariantCulture);
+                    NameElementTextBox.Text = res.UniqueName;
                 }
-                if ( value is Capacitor )
+                else if ( value is Capacitor )
                 {
-                    NominalTextBox.Text = value.Value.ToString(CultureInfo.InvariantCulture);
+                    var capacitor = (Capacitor)value;
+                    ElementComboBoxSelect.SelectedIndex = 1;
+                    NominalTextBox.Text = capacitor.Value.ToString(CultureInfo.InvariantCulture);
+                    NameElementTextBox.Text = capacitor.UniqueName;
                 }
-                if ( value is Inductor )
+                else if ( value is Inductor )
                 {
-                    NominalTextBox.Text = value.Value.ToString(CultureInfo.InvariantCulture);
+                    var inductor = (Inductor)value;
+                    ElementComboBoxSelect.SelectedIndex = 2;
+                    NominalTextBox.Text = inductor.Value.ToString(CultureInfo.InvariantCulture);
+                    NameElementTextBox.Text = inductor.UniqueName;
                 }
             }
         }
@@ -72,7 +80,7 @@ namespace PassiveComponentsView
         {
         }
 
-        private void ButtonOkClick(object sender, EventArgs e)
+        private void ButtonOk_Click(object sender, EventArgs e)
         {
             if ( ElementComboBoxSelect.SelectedIndex == -1 )
             {
@@ -82,7 +90,7 @@ namespace PassiveComponentsView
             Close();
         }
 
-        private void ButtonCancelClick(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
