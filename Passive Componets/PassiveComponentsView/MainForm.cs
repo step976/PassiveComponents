@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
-
+using System.Runtime.Serialization;
+using System.Drawing;
+using System.Text;
 using Passive_Componets;
 
 namespace PassiveComponentsView
 {
     public partial class MainForm : Form
     {
-        private List<IElement> Elements { get; set; }
+        private List<IElement> Elements;
+        BinaryFormatter formatter = new BinaryFormatter();
 
         public MainForm()
         {
             InitializeComponent();
             CenterToScreen();
             Elements = new List<IElement>();
-
-            UpdateGrid();
+            iElementBindingSource.DataSource = Elements;
         }
 
         private void MainFormLoad(object sender, EventArgs e)
@@ -40,94 +42,64 @@ namespace PassiveComponentsView
             var form = new AddForm();
             if ( form.ShowDialog() == DialogResult.OK )
             {
-                IElement element = form.Element;
-                Elements.Add(element);
-                elementDataGridView.Rows.Add(
-                        element.UniqueName,
-                        element.Value,
-                        element.GetImpedance(Convert.ToDouble(AngularFreqTextBox.Text)));
+                iElementBindingSource.Add(form.Element);
             }
         }
 
         private void RemoveElement_Click(object sender, EventArgs e)
         {
-            int index = elementDataGridView.SelectedCells[0].RowIndex;
-            elementDataGridView.Rows.RemoveAt(index);
-            Elements.RemoveAt(index);
+            iElementBindingSource.RemoveCurrent();
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            for (var i = 0; i < Elements.Count; i++)
+         /*   for (var i = 0; i < Elements.Count; i++)
             {
                 elementDataGridView.Rows[i].Cells[2].Value = Elements[i].GetImpedance(Convert.ToDouble((AngularFreqTextBox.Text)));
-            }
+            }*/
         }
 
         private void ModifyElement_Click(object sender, EventArgs e)
         {
             int index = elementDataGridView.SelectedCells[0].RowIndex;
-            var form = new AddForm();
-            form.Element = Elements[index];
+            var form = new AddForm
+                       {
+                               Element = Elements[index]
+                       };
             form.ShowDialog();
             IElement elemnt = form.Element;
             Elements.RemoveAt(index);
             Elements.Insert(index, elemnt);
             elementDataGridView.Rows.RemoveAt(index);
-            elementDataGridView.Rows.Insert(index,
-                    elemnt.UniqueName,
-                    elemnt.Value,
-                    elemnt.GetImpedance(Convert.ToDouble(AngularFreqTextBox.Text)));
-        }
-
-        private void UpdateGrid()
-        {
-            elementDataGridView.Rows.Add(Element.name);
-            elementDataGridView.Rows.Add(Element.nominal);
-            elementDataGridView.Rows.Add(Element.impedance);
+            elementDataGridView.Rows.Insert(index, elemnt.UniqueName, elemnt.Value);
+            // elemnt.GetImpedance(Convert.ToDouble(AngularFreqTextBox.Text)));
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var mySaveFileDialog = new SaveFileDialog
-                                   {
-                                           InitialDirectory = ".",
-                                           Filter = @"element files (*.elm)|*.elm|All files(*.*)|*.*",
-                                           FilterIndex = 1,
-                                           RestoreDirectory = true,
-                                           FileName = "elementDoc"
-                                   };
-
-            if ( mySaveFileDialog.ShowDialog() == DialogResult.OK )
+            if (Elements.Count != 0)
             {
-                Stream myStream = mySaveFileDialog.OpenFile();
-
-                var serializer = new BinaryFormatter();
-                serializer.Serialize(myStream, Elements);
-                myStream.Close();
+                SaveFileDialog ofd = new SaveFileDialog();
+                ofd.Filter = "txt files (*.dat)|*.dat";
+                ofd.RestoreDirectory = true;
+                if (!(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel))
+                {
+                    Serialization.Serialize(ofd.FileName, Elements);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ошибка. Файл не може быть пустым");
             }
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var myOpenFileDialog = new OpenFileDialog
-                                   {
-                                           InitialDirectory = ".",
-                                           Filter = @"element files (*.elm)|*.elm|All files(*.*)|*.*",
-                                           FilterIndex = 1,
-                                           RestoreDirectory = true
-                                   };
-
-            if ( myOpenFileDialog.ShowDialog() == DialogResult.OK )
+            OpenFileDialog ofd = new OpenFileDialog();
+            if ( !(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel) )
             {
-                Elements.Clear();
-
-                Stream stream = myOpenFileDialog.OpenFile();
-                var deserializer = new BinaryFormatter();
-                Elements = deserializer.Deserialize(stream) as List<IElement>;
-                stream.Close();
-                elementDataGridView.Update();
-
+                Elements = Serialization.Deserialize(ofd.FileName);
+                iElementBindingSource.DataSource = Elements;
             }
         }
     }   

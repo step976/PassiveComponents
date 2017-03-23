@@ -6,11 +6,13 @@ namespace Passive_Componets
     /// <summary>
     /// Класс катушки индуктивности
     /// </summary>
-    
-    [SerializableAttribute]
-
+    [Serializable]
     public class Inductor : IElement
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private double _freq;
         /// <summary>
         /// Индуктивность.
         /// </summary>
@@ -57,20 +59,43 @@ namespace Passive_Componets
         /// <summary>
         /// Нахождение комплексого сопротивления для катушки идуктивности.
         /// </summary>
-        /// <param name="freq">Частота.</param>
         /// <returns>Комплексное сопротивление катушки идуктивности.</returns>
-        public Complex GetImpedance(double freq)
+        public Complex GetImpedance()
         {
-            if ( freq <= 0 )
-            {
-                throw new ArgumentException("Некорректно введена частота");
-            }
-            return new Complex(0, (freq*2*Math.PI)*_value);
+            return new Complex(0, (_freq*2*Math.PI)*_value);
         }
 
         /// <summary>
         /// Уникальное имя для элемента списка.
         /// </summary>
         public string UniqueName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+       public Complex Impedance
+        {
+            get
+            {
+                return GetImpedance();
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public double Freq
+        {
+            get
+            {
+                return _freq;
+            }
+            set
+            {
+                if (_freq <= 0)
+                {
+                    throw new ArgumentException("Некорректно введена частота");
+                }
+                _freq = value;
+            }
+        }
     }
 }

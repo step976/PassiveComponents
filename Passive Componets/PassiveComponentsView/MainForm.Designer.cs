@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,9 +46,15 @@
             this.Impedance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RemoveElementButton = new System.Windows.Forms.Button();
             this.AddElementButton = new System.Windows.Forms.Button();
+            this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uniqueNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impedanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.freqDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -160,16 +167,22 @@
             this.elementDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.elementDataGridView.AutoGenerateColumns = false;
             this.elementDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.elementDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.elementDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NameElement,
             this.Nominal,
-            this.Impedance});
+            this.Impedance,
+            this.valueDataGridViewTextBoxColumn,
+            this.uniqueNameDataGridViewTextBoxColumn,
+            this.impedanceDataGridViewTextBoxColumn,
+            this.freqDataGridViewTextBoxColumn});
+            this.elementDataGridView.DataSource = this.iElementBindingSource;
             this.elementDataGridView.Location = new System.Drawing.Point(12, 19);
             this.elementDataGridView.Name = "elementDataGridView";
             this.elementDataGridView.ReadOnly = true;
-            this.elementDataGridView.Size = new System.Drawing.Size(421, 129);
+            this.elementDataGridView.Size = new System.Drawing.Size(742, 129);
             this.elementDataGridView.TabIndex = 3;
             // 
             // NameElement
@@ -212,6 +225,38 @@
             this.AddElementButton.UseVisualStyleBackColor = true;
             this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
             // 
+            // iElementBindingSource
+            // 
+            this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // uniqueNameDataGridViewTextBoxColumn
+            // 
+            this.uniqueNameDataGridViewTextBoxColumn.DataPropertyName = "UniqueName";
+            this.uniqueNameDataGridViewTextBoxColumn.HeaderText = "UniqueName";
+            this.uniqueNameDataGridViewTextBoxColumn.Name = "uniqueNameDataGridViewTextBoxColumn";
+            this.uniqueNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // impedanceDataGridViewTextBoxColumn
+            // 
+            this.impedanceDataGridViewTextBoxColumn.DataPropertyName = "Impedance";
+            this.impedanceDataGridViewTextBoxColumn.HeaderText = "Impedance";
+            this.impedanceDataGridViewTextBoxColumn.Name = "impedanceDataGridViewTextBoxColumn";
+            this.impedanceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // freqDataGridViewTextBoxColumn
+            // 
+            this.freqDataGridViewTextBoxColumn.DataPropertyName = "Freq";
+            this.freqDataGridViewTextBoxColumn.HeaderText = "Freq";
+            this.freqDataGridViewTextBoxColumn.Name = "freqDataGridViewTextBoxColumn";
+            this.freqDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +273,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,6 +298,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Impedance;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uniqueNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impedanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn freqDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource iElementBindingSource;
     }
 }
 

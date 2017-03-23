@@ -6,12 +6,13 @@ namespace Passive_Componets
     /// <summary>
     /// Класс резистора.
     /// </summary>
-    
-
-    [SerializableAttribute]
-
+    [Serializable]
     public class Resistor : IElement
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private double _freq;
         /// <summary>
         /// Сопротивление.
         /// </summary>
@@ -58,9 +59,8 @@ namespace Passive_Componets
         /// <summary>
         /// Нахождение комплексого сопротивления для резистора.
         /// </summary>
-        /// <param name="freq">Частота.</param>
         /// <returns>Комплексное сопротивление резистора.</returns>
-        public Complex GetImpedance(double freq)
+        public Complex GetImpedance()
         {
             return new Complex(_value, 0);
         }
@@ -69,5 +69,28 @@ namespace Passive_Componets
         /// Уникальное имя для элемента списка.
         /// </summary>
         public string UniqueName { get; set; }
+
+        public double Freq
+        {
+            get
+            {
+                return _freq;
+            }
+            set
+            {
+                _freq = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Complex Impedance
+        {
+            get
+            {
+                return GetImpedance();
+            }
+        }
     }
 }

@@ -5,16 +5,13 @@ namespace Passive_Componets
     /// <summary>
     /// Интерфейс элементов.
     /// </summary>
-    
-
     public interface IElement
     {
         /// <summary>
         /// Получение комплексного сопротивления.
         /// </summary>
-        /// <param name="freq">Частота.</param>
         /// <returns>Комплексное число.</returns>
-        Complex GetImpedance(double freq);
+        Complex GetImpedance();
 
         /// <summary>
         /// Индуктивность, сопротивление, емкость.
@@ -25,5 +22,13 @@ namespace Passive_Componets
         /// Уникальное имя для элемента списка.
         /// </summary>
         string UniqueName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        Complex Impedance { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        double Freq { get; set; }
     }
 }
