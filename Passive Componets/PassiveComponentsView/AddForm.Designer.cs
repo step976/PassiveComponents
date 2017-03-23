@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ElementComboBoxSelect = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,7 +38,11 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.SelectElement = new System.Windows.Forms.Label();
+            this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.resistorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -55,18 +60,20 @@
             this.groupBox1.Controls.Add(this.SelectElement);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(694, 358);
+            this.groupBox1.Size = new System.Drawing.Size(694, 328);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // ElementComboBoxSelect
             // 
-            this.ElementComboBoxSelect.FormattingEnabled = true;
+            this.ElementComboBoxSelect.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ElementComboBoxSelect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ElementComboBoxSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ElementComboBoxSelect.Items.AddRange(new object[] {
-            "Resistor",
-            "Capacitor",
-            "Inductor"});
-            this.ElementComboBoxSelect.Location = new System.Drawing.Point(15, 43);
+            "Резистор",
+            "Конденсатор",
+            "Катушка индуктивности"});
+            this.ElementComboBoxSelect.Location = new System.Drawing.Point(3, 29);
             this.ElementComboBoxSelect.Name = "ElementComboBoxSelect";
             this.ElementComboBoxSelect.Size = new System.Drawing.Size(158, 21);
             this.ElementComboBoxSelect.TabIndex = 9;
@@ -75,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 143);
+            this.label2.Location = new System.Drawing.Point(-3, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(207, 13);
             this.label2.TabIndex = 8;
@@ -84,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 83);
+            this.label1.Location = new System.Drawing.Point(0, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 13);
             this.label1.TabIndex = 7;
@@ -92,20 +99,21 @@
             // 
             // NameElementTextBox
             // 
-            this.NameElementTextBox.Location = new System.Drawing.Point(15, 168);
+            this.NameElementTextBox.Location = new System.Drawing.Point(0, 147);
             this.NameElementTextBox.Name = "NameElementTextBox";
             this.NameElementTextBox.Size = new System.Drawing.Size(158, 20);
             this.NameElementTextBox.TabIndex = 6;
             // 
             // NominalTextBox
             // 
-            this.NominalTextBox.Location = new System.Drawing.Point(15, 109);
+            this.NominalTextBox.Location = new System.Drawing.Point(3, 84);
             this.NominalTextBox.Name = "NominalTextBox";
             this.NominalTextBox.Size = new System.Drawing.Size(158, 20);
             this.NominalTextBox.TabIndex = 5;
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCancel.Location = new System.Drawing.Point(178, 284);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
@@ -116,6 +124,7 @@
             // 
             // buttonOK
             // 
+            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonOK.Location = new System.Drawing.Point(15, 283);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
@@ -127,11 +136,20 @@
             // SelectElement
             // 
             this.SelectElement.AutoSize = true;
-            this.SelectElement.Location = new System.Drawing.Point(12, 16);
+            this.SelectElement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SelectElement.Location = new System.Drawing.Point(3, 16);
             this.SelectElement.Name = "SelectElement";
             this.SelectElement.Size = new System.Drawing.Size(103, 13);
             this.SelectElement.TabIndex = 2;
             this.SelectElement.Text = "Выберите элемент";
+            // 
+            // iElementBindingSource
+            // 
+            this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
+            // 
+            // resistorBindingSource
+            // 
+            this.resistorBindingSource.DataSource = typeof(Passive_Componets.Resistor);
             // 
             // AddForm
             // 
@@ -144,6 +162,8 @@
             this.Load += new System.EventHandler(this.AddFormLoad);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,6 +178,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NameElementTextBox;
         private System.Windows.Forms.TextBox NominalTextBox;
+        private System.Windows.Forms.BindingSource iElementBindingSource;
+        private System.Windows.Forms.BindingSource resistorBindingSource;
         private System.Windows.Forms.ComboBox ElementComboBoxSelect;
     }
 }

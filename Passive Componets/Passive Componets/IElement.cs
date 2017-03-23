@@ -22,12 +22,14 @@ namespace Passive_Componets
         /// Уникальное имя для элемента списка.
         /// </summary>
         string UniqueName { get; set; }
+
         /// <summary>
-        /// 
+        /// Расчет комплексого сопротивления.
         /// </summary>
         Complex Impedance { get; }
+
         /// <summary>
-        /// 
+        /// Угловая частота.
         /// </summary>
         double Freq { get; set; }
     }

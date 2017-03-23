@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
-using System.Drawing;
-using System.Text;
+
 using Passive_Componets;
 
 namespace PassiveComponentsView
 {
     public partial class MainForm : Form
     {
-        private List<IElement> Elements;
-        BinaryFormatter formatter = new BinaryFormatter();
+        public List<IElement> Elements;
+        private BinaryFormatter _formatter = new BinaryFormatter();
 
         public MainForm()
         {
@@ -25,7 +22,6 @@ namespace PassiveComponentsView
 
         private void MainFormLoad(object sender, EventArgs e)
         {
-            AngularFreqTextBox.Text = 1.ToString();
         }
 
         private void FileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,10 +49,7 @@ namespace PassiveComponentsView
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-         /*   for (var i = 0; i < Elements.Count; i++)
-            {
-                elementDataGridView.Rows[i].Cells[2].Value = Elements[i].GetImpedance(Convert.ToDouble((AngularFreqTextBox.Text)));
-            }*/
+            
         }
 
         private void ModifyElement_Click(object sender, EventArgs e)
@@ -66,41 +59,48 @@ namespace PassiveComponentsView
                        {
                                Element = Elements[index]
                        };
-            form.ShowDialog();
-            IElement elemnt = form.Element;
-            Elements.RemoveAt(index);
-            Elements.Insert(index, elemnt);
-            elementDataGridView.Rows.RemoveAt(index);
-            elementDataGridView.Rows.Insert(index, elemnt.UniqueName, elemnt.Value);
-            // elemnt.GetImpedance(Convert.ToDouble(AngularFreqTextBox.Text)));
+            if ( form.ShowDialog() == DialogResult.OK )
+            {
+                iElementBindingSource.RemoveAt(index);
+                iElementBindingSource.Insert(index, form.Element);
+            }
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Elements.Count != 0)
+            if (Elements.Count != 0 )
             {
-                SaveFileDialog ofd = new SaveFileDialog();
-                ofd.Filter = "txt files (*.dat)|*.dat";
-                ofd.RestoreDirectory = true;
-                if (!(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel))
+                var ofd = new SaveFileDialog
+                          {
+                                  Filter = @"txt files (*.dat)|*.dat",
+                                  RestoreDirectory = true
+                          };
+                if ( !(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel) )
                 {
                     Serialization.Serialize(ofd.FileName, Elements);
                 }
             }
             else
             {
-                MessageBox.Show("Ошибка. Файл не може быть пустым");
+                MessageBox.Show(@"Ошибка. Файл не може быть пустым");
             }
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+            var ofd = new OpenFileDialog();
             if ( !(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel) )
             {
                 Elements = Serialization.Deserialize(ofd.FileName);
                 iElementBindingSource.DataSource = Elements;
             }
         }
-    }   
+
+        private void AutoCreateButton_Click(object sender, EventArgs e)
+        {
+            iElementBindingSource.Add(new Resistor("Резистор ", 91.3, 10));
+            iElementBindingSource.Add(new Capacitor("Конденсатор ", 1.9, 10));
+            iElementBindingSource.Add(new Inductor("Катушка ", 23, 10));
+        }
+    }
 }

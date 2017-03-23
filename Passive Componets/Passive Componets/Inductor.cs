@@ -10,9 +10,10 @@ namespace Passive_Componets
     public class Inductor : IElement
     {
         /// <summary>
-        /// 
+        /// Угловая частота.
         /// </summary>
         private double _freq;
+
         /// <summary>
         /// Индуктивность.
         /// </summary>
@@ -22,9 +23,11 @@ namespace Passive_Componets
         /// Конструктор катушки индуктивности с параметром.
         /// </summary>
         /// <param name="value">Индуктивность.</param>
-        public Inductor(double value)
+        public Inductor(string name, double value,  double freq)
         {
+            UniqueName = name;
             Value = value;
+            Freq = freq;
         }
 
         /// <summary>
@@ -69,18 +72,24 @@ namespace Passive_Componets
         /// Уникальное имя для элемента списка.
         /// </summary>
         public string UniqueName { get; set; }
+
         /// <summary>
-        /// 
+        /// Расчет комплексого сопротивления для катушки индуктивности.
         /// </summary>
-       public Complex Impedance
+        public Complex Impedance
         {
             get
             {
                 return GetImpedance();
             }
+            set
+            {
+               
+            }
         }
+
         /// <summary>
-        /// 
+        /// Угловая частота.
         /// </summary>
         public double Freq
         {
@@ -90,11 +99,16 @@ namespace Passive_Componets
             }
             set
             {
-                if (_freq <= 0)
+                if ( value >= 0 )
+                {
+                    _freq = value;
+
+                }
+                else
                 {
                     throw new ArgumentException("Некорректно введена частота");
                 }
-                _freq = value;
+                
             }
         }
     }

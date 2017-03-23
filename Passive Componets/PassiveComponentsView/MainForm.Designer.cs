@@ -41,16 +41,14 @@
             this.AngularFreqTextBox = new System.Windows.Forms.TextBox();
             this.ModifyElementButton = new System.Windows.Forms.Button();
             this.elementDataGridView = new System.Windows.Forms.DataGridView();
-            this.NameElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nominal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Impedance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RemoveElementButton = new System.Windows.Forms.Button();
-            this.AddElementButton = new System.Windows.Forms.Button();
-            this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uniqueNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.impedanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.freqDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RemoveElementButton = new System.Windows.Forms.Button();
+            this.AddElementButton = new System.Windows.Forms.Button();
+            this.AutoCreateButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
@@ -108,6 +106,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.AutoCreateButton);
             this.groupBox1.Controls.Add(this.CalculateButton);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.AngularFreqTextBox);
@@ -164,6 +163,7 @@
             // 
             // elementDataGridView
             // 
+            this.elementDataGridView.AllowUserToDeleteRows = false;
             this.elementDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -171,37 +171,48 @@
             this.elementDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.elementDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.elementDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameElement,
-            this.Nominal,
-            this.Impedance,
-            this.valueDataGridViewTextBoxColumn,
             this.uniqueNameDataGridViewTextBoxColumn,
+            this.valueDataGridViewTextBoxColumn,
             this.impedanceDataGridViewTextBoxColumn,
             this.freqDataGridViewTextBoxColumn});
             this.elementDataGridView.DataSource = this.iElementBindingSource;
             this.elementDataGridView.Location = new System.Drawing.Point(12, 19);
             this.elementDataGridView.Name = "elementDataGridView";
             this.elementDataGridView.ReadOnly = true;
-            this.elementDataGridView.Size = new System.Drawing.Size(742, 129);
+            this.elementDataGridView.Size = new System.Drawing.Size(477, 129);
             this.elementDataGridView.TabIndex = 3;
             // 
-            // NameElement
+            // uniqueNameDataGridViewTextBoxColumn
             // 
-            this.NameElement.HeaderText = "Элемент";
-            this.NameElement.Name = "NameElement";
-            this.NameElement.ReadOnly = true;
+            this.uniqueNameDataGridViewTextBoxColumn.DataPropertyName = "UniqueName";
+            this.uniqueNameDataGridViewTextBoxColumn.HeaderText = "Имя элемента";
+            this.uniqueNameDataGridViewTextBoxColumn.Name = "uniqueNameDataGridViewTextBoxColumn";
+            this.uniqueNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Nominal
+            // valueDataGridViewTextBoxColumn
             // 
-            this.Nominal.HeaderText = "Номинал";
-            this.Nominal.Name = "Nominal";
-            this.Nominal.ReadOnly = true;
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Номинал";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Impedance
+            // impedanceDataGridViewTextBoxColumn
             // 
-            this.Impedance.HeaderText = "Комплексное сопротивление";
-            this.Impedance.Name = "Impedance";
-            this.Impedance.ReadOnly = true;
+            this.impedanceDataGridViewTextBoxColumn.DataPropertyName = "Impedance";
+            this.impedanceDataGridViewTextBoxColumn.HeaderText = "Комплексное сопротивление";
+            this.impedanceDataGridViewTextBoxColumn.Name = "impedanceDataGridViewTextBoxColumn";
+            this.impedanceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // freqDataGridViewTextBoxColumn
+            // 
+            this.freqDataGridViewTextBoxColumn.DataPropertyName = "Freq";
+            this.freqDataGridViewTextBoxColumn.HeaderText = "Угловая частота";
+            this.freqDataGridViewTextBoxColumn.Name = "freqDataGridViewTextBoxColumn";
+            this.freqDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iElementBindingSource
+            // 
+            this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
             // 
             // RemoveElementButton
             // 
@@ -225,37 +236,15 @@
             this.AddElementButton.UseVisualStyleBackColor = true;
             this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
             // 
-            // iElementBindingSource
+            // AutoCreateButton
             // 
-            this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
-            // 
-            // valueDataGridViewTextBoxColumn
-            // 
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // uniqueNameDataGridViewTextBoxColumn
-            // 
-            this.uniqueNameDataGridViewTextBoxColumn.DataPropertyName = "UniqueName";
-            this.uniqueNameDataGridViewTextBoxColumn.HeaderText = "UniqueName";
-            this.uniqueNameDataGridViewTextBoxColumn.Name = "uniqueNameDataGridViewTextBoxColumn";
-            this.uniqueNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // impedanceDataGridViewTextBoxColumn
-            // 
-            this.impedanceDataGridViewTextBoxColumn.DataPropertyName = "Impedance";
-            this.impedanceDataGridViewTextBoxColumn.HeaderText = "Impedance";
-            this.impedanceDataGridViewTextBoxColumn.Name = "impedanceDataGridViewTextBoxColumn";
-            this.impedanceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // freqDataGridViewTextBoxColumn
-            // 
-            this.freqDataGridViewTextBoxColumn.DataPropertyName = "Freq";
-            this.freqDataGridViewTextBoxColumn.HeaderText = "Freq";
-            this.freqDataGridViewTextBoxColumn.Name = "freqDataGridViewTextBoxColumn";
-            this.freqDataGridViewTextBoxColumn.ReadOnly = true;
+            this.AutoCreateButton.Location = new System.Drawing.Point(6, 241);
+            this.AutoCreateButton.Name = "AutoCreateButton";
+            this.AutoCreateButton.Size = new System.Drawing.Size(75, 36);
+            this.AutoCreateButton.TabIndex = 8;
+            this.AutoCreateButton.Text = "Рандомные элементы";
+            this.AutoCreateButton.UseVisualStyleBackColor = true;
+            this.AutoCreateButton.Click += new System.EventHandler(this.AutoCreateButton_Click);
             // 
             // MainForm
             // 
@@ -293,16 +282,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox AngularFreqTextBox;
         private System.Windows.Forms.Button CalculateButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameElement;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nominal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Impedance;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource iElementBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn uniqueNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn impedanceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn freqDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource iElementBindingSource;
+        private System.Windows.Forms.Button AutoCreateButton;
     }
 }
 

@@ -10,9 +10,10 @@ namespace Passive_Componets
     public class Capacitor : IElement
     {
         /// <summary>
-        /// 
+        /// Угловая частота.
         /// </summary>
         private double _freq;
+
         /// <summary>
         /// Емкость кондесатора.
         /// </summary>
@@ -22,9 +23,11 @@ namespace Passive_Componets
         /// Конструктор конденсатора с параметром.
         /// </summary>
         /// <param name="value">Емкость конденсатора.</param>
-        public Capacitor(double value)
+        public Capacitor(string name, double value, double freq)
         {
+            UniqueName = name;
             Value = value;
+            Freq = freq;
         }
 
         /// <summary>
@@ -62,7 +65,6 @@ namespace Passive_Componets
         /// <returns>Комплексное сопротивление конденсатора.</returns>
         public Complex GetImpedance()
         {
-
             return new Complex(0, -(1/((_freq*2*Math.PI)*_value)));
         }
 
@@ -70,10 +72,11 @@ namespace Passive_Componets
         /// Уникальное имя для элемента списка.
         /// </summary>
         public string UniqueName { get; set; }
+
         /// <summary>
-        /// 
+        /// Угловая частота.
         /// </summary>
-        public  double Freq
+        public double Freq
         {
             get
             {
@@ -81,15 +84,20 @@ namespace Passive_Componets
             }
             set
             {
-                if (_freq <= 0)
+                if (value >= 0)
+                {
+                    _freq = value;
+
+                }
+                else
                 {
                     throw new ArgumentException("Некорректно введена частота");
                 }
-                _freq = value;
             }
         }
+
         /// <summary>
-        /// 
+        /// Расчет комплексого сопротивления для конденсатора.
         /// </summary>
         public Complex Impedance
         {
@@ -98,6 +106,5 @@ namespace Passive_Componets
                 return GetImpedance();
             }
         }
-
     }
 }

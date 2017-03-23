@@ -10,9 +10,10 @@ namespace Passive_Componets
     public class Resistor : IElement
     {
         /// <summary>
-        /// 
+        /// Угловая частота.
         /// </summary>
         private double _freq;
+
         /// <summary>
         /// Сопротивление.
         /// </summary>
@@ -22,9 +23,11 @@ namespace Passive_Componets
         /// Конструктор резистора c параметром.
         /// </summary>
         /// <param name="value">Сопротивление.</param>
-        public Resistor(double value)
+        public Resistor(string name, double value, double freq)
         {
+            UniqueName = name;
             Value = value;
+            Freq = freq;
         }
 
         /// <summary>
@@ -57,7 +60,7 @@ namespace Passive_Componets
         }
 
         /// <summary>
-        /// Нахождение комплексого сопротивления для резистора.
+        /// Расчет комплексого сопротивления для резистора.
         /// </summary>
         /// <returns>Комплексное сопротивление резистора.</returns>
         public Complex GetImpedance()
@@ -70,6 +73,9 @@ namespace Passive_Componets
         /// </summary>
         public string UniqueName { get; set; }
 
+        /// <summary>
+        /// Угловая частота.
+        /// </summary>
         public double Freq
         {
             get
@@ -83,7 +89,7 @@ namespace Passive_Componets
         }
 
         /// <summary>
-        /// 
+        /// Расчет комплексого сопротивления для резистора.
         /// </summary>
         public Complex Impedance
         {

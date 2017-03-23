@@ -61,9 +61,7 @@
     <Compile Include="AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Element.cs" />
     <Compile Include="Serialization.cs" />
-    <Compile Include="Globals.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +85,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Passive_Componets.Capacitor.datasource" />
     <None Include="Properties\DataSources\Passive_Componets.IElement.datasource" />
+    <None Include="Properties\DataSources\Passive_Componets.Inductor.datasource" />
+    <None Include="Properties\DataSources\Passive_Componets.Resistor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

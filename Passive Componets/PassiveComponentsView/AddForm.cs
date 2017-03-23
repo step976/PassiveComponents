@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+
 using Passive_Componets;
 
 namespace PassiveComponentsView
@@ -16,6 +17,7 @@ namespace PassiveComponentsView
                 {
                     var resistor = new Resistor
                                    {
+                                           Freq = Convert.ToDouble(10),
                                            Value = Convert.ToDouble(NominalTextBox.Text),
                                            UniqueName = Convert.ToString(NameElementTextBox.Text)
                                    };
@@ -26,6 +28,7 @@ namespace PassiveComponentsView
                     var capacitor = new Capacitor
                                     {
                                             Value = Convert.ToDouble(NominalTextBox.Text),
+                                            Freq = Convert.ToDouble(10),
                                             UniqueName = Convert.ToString(NameElementTextBox.Text)
                                     };
                     unit = capacitor;
@@ -34,6 +37,7 @@ namespace PassiveComponentsView
                 {
                     var inductor = new Inductor
                                    {
+                                           Freq = Convert.ToDouble(10),
                                            Value = Convert.ToDouble(NominalTextBox.Text),
                                            UniqueName = Convert.ToString(NameElementTextBox.Text)
                                    };
