@@ -47,9 +47,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.ElementComboBoxSelect);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -60,7 +57,7 @@
             this.groupBox1.Controls.Add(this.SelectElement);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(694, 328);
+            this.groupBox1.Size = new System.Drawing.Size(208, 328);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -110,11 +107,12 @@
             this.NominalTextBox.Name = "NominalTextBox";
             this.NominalTextBox.Size = new System.Drawing.Size(158, 20);
             this.NominalTextBox.TabIndex = 5;
+            this.NominalTextBox.TextChanged += new System.EventHandler(this.NominalTextBox_TextChanged);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonCancel.Location = new System.Drawing.Point(178, 284);
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonCancel.Location = new System.Drawing.Point(129, 283);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 4;
@@ -124,7 +122,7 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonOK.Location = new System.Drawing.Point(15, 283);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
@@ -142,6 +140,7 @@
             this.SelectElement.Size = new System.Drawing.Size(103, 13);
             this.SelectElement.TabIndex = 2;
             this.SelectElement.Text = "Выберите элемент";
+            this.SelectElement.Click += new System.EventHandler(this.SelectElement_Click);
             // 
             // iElementBindingSource
             // 
@@ -155,8 +154,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 352);
+            this.ClientSize = new System.Drawing.Size(232, 352);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddForm";
             this.Text = "Добавить элемент";
             this.Load += new System.EventHandler(this.AddFormLoad);

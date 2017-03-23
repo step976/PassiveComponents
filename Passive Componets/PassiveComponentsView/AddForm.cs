@@ -99,5 +99,15 @@ namespace PassiveComponentsView
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void SelectElement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NominalTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

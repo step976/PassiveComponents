@@ -49,7 +49,12 @@ namespace PassiveComponentsView
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            
+            iElementBindingSource.DataSource = null;
+            foreach (IElement i in Elements )
+            {
+                i.Freq = Convert.ToDouble(AngularFreqTextBox.Text);
+            }
+            iElementBindingSource.DataSource = Elements;
         }
 
         private void ModifyElement_Click(object sender, EventArgs e)
