@@ -49,6 +49,7 @@
             this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RemoveElementButton = new System.Windows.Forms.Button();
             this.AddElementButton = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
@@ -109,6 +110,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.SearchButton);
             this.groupBox1.Controls.Add(this.AutoCreateButton);
             this.groupBox1.Controls.Add(this.CalculateButton);
             this.groupBox1.Controls.Add(this.label1);
@@ -250,6 +252,16 @@
             this.AddElementButton.UseVisualStyleBackColor = true;
             this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
             // 
+            // SearchButton
+            // 
+            this.SearchButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.SearchButton.Location = new System.Drawing.Point(414, 174);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.TabIndex = 9;
+            this.SearchButton.Text = "Поиск";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,6 +306,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn impedanceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn freqDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button AutoCreateButton;
+        private System.Windows.Forms.Button SearchButton;
     }
 }
 

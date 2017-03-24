@@ -86,9 +86,17 @@ namespace PassiveComponentsView
 
         private void ButtonOk_Click(object sender, EventArgs e)
         {
-            if ( ElementComboBoxSelect.SelectedIndex == -1 )
+            try
             {
-                throw new ArgumentException("Не выбран ни один элемент");
+                IElement element = Element;
+            }
+            catch ( FormatException fe )
+            {
+                MessageBox.Show(fe.Message, @"Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch ( ArgumentException fe )
+            {
+                MessageBox.Show(fe.Message, @"Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             DialogResult = DialogResult.OK;
             Close();
