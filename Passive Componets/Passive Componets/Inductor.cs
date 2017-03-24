@@ -22,7 +22,9 @@ namespace Passive_Componets
         /// <summary>
         /// Конструктор катушки индуктивности с параметром.
         /// </summary>
+        /// <param name="name">Уникальное ия</param>
         /// <param name="value">Индуктивность.</param>
+        /// <param name="freq">Угловая частота</param>
         public Inductor(string name, double value,  double freq)
         {
             UniqueName = name;

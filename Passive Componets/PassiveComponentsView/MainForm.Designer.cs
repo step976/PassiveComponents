@@ -36,6 +36,7 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.AutoCreateButton = new System.Windows.Forms.Button();
             this.CalculateButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RemoveElementButton = new System.Windows.Forms.Button();
             this.AddElementButton = new System.Windows.Forms.Button();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
@@ -81,29 +81,29 @@
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ExitToolStripMenuItem.Text = "Выход";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // HelpToolStripMenuItem
             // 
             this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
-            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.HelpToolStripMenuItem.Text = "Попощь";
+            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.HelpToolStripMenuItem.Text = "Помощь";
             // 
             // groupBox1
             // 
@@ -124,6 +124,16 @@
             this.groupBox1.Size = new System.Drawing.Size(496, 289);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.SearchButton.Location = new System.Drawing.Point(414, 174);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.TabIndex = 9;
+            this.SearchButton.Text = "Поиск";
+            this.SearchButton.UseVisualStyleBackColor = true;
             // 
             // AutoCreateButton
             // 
@@ -192,10 +202,10 @@
             this.impedanceDataGridViewTextBoxColumn,
             this.freqDataGridViewTextBoxColumn});
             this.elementDataGridView.DataSource = this.iElementBindingSource;
-            this.elementDataGridView.Location = new System.Drawing.Point(12, 19);
+            this.elementDataGridView.Location = new System.Drawing.Point(6, 0);
             this.elementDataGridView.Name = "elementDataGridView";
             this.elementDataGridView.ReadOnly = true;
-            this.elementDataGridView.Size = new System.Drawing.Size(472, 129);
+            this.elementDataGridView.Size = new System.Drawing.Size(483, 129);
             this.elementDataGridView.TabIndex = 3;
             // 
             // uniqueNameDataGridViewTextBoxColumn
@@ -251,16 +261,6 @@
             this.AddElementButton.Text = "Добавить элемент";
             this.AddElementButton.UseVisualStyleBackColor = true;
             this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.SearchButton.Location = new System.Drawing.Point(414, 174);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
-            this.SearchButton.TabIndex = 9;
-            this.SearchButton.Text = "Поиск";
-            this.SearchButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

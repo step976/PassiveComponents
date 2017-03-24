@@ -9,7 +9,7 @@ namespace PassiveComponentsView
 {
     public partial class MainForm : Form
     {
-        public List<IElement> Elements;
+        private List<IElement> Elements;
         private BinaryFormatter _formatter = new BinaryFormatter();
 
         public MainForm()

@@ -22,7 +22,9 @@ namespace Passive_Componets
         /// <summary>
         /// Конструктор конденсатора с параметром.
         /// </summary>
+        /// <param name="name">Уникальное имя</param>
         /// <param name="value">Емкость конденсатора.</param>
+        /// <param name="freq">Угловая частота</param>
         public Capacitor(string name, double value, double freq)
         {
             UniqueName = name;

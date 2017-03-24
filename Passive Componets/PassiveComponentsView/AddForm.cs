@@ -51,12 +51,14 @@ namespace PassiveComponentsView
                 {
                     var res = (Resistor)value;
                     ElementComboBoxSelect.SelectedIndex = 0;
+                    ElementComboBoxSelect.Enabled = false;
                     NominalTextBox.Text = res.Value.ToString(CultureInfo.InvariantCulture);
                     NameElementTextBox.Text = res.UniqueName;
                 }
                 else if ( value is Capacitor )
                 {
                     var capacitor = (Capacitor)value;
+                    ElementComboBoxSelect.Enabled = false;
                     ElementComboBoxSelect.SelectedIndex = 1;
                     NominalTextBox.Text = capacitor.Value.ToString(CultureInfo.InvariantCulture);
                     NameElementTextBox.Text = capacitor.UniqueName;
@@ -64,6 +66,7 @@ namespace PassiveComponentsView
                 else if ( value is Inductor )
                 {
                     var inductor = (Inductor)value;
+                    ElementComboBoxSelect.Enabled = false;
                     ElementComboBoxSelect.SelectedIndex = 2;
                     NominalTextBox.Text = inductor.Value.ToString(CultureInfo.InvariantCulture);
                     NameElementTextBox.Text = inductor.UniqueName;

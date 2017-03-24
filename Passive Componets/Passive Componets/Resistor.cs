@@ -22,7 +22,9 @@ namespace Passive_Componets
         /// <summary>
         /// Конструктор резистора c параметром.
         /// </summary>
+        /// <param name="name">Уникальное имя</param>
         /// <param name="value">Сопротивление.</param>
+        /// <param name="freq">Угловая частота</param>
         public Resistor(string name, double value, double freq)
         {
             UniqueName = name;
