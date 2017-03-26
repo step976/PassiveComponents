@@ -22,6 +22,7 @@ namespace PassiveComponentsView
 
         private void MainFormLoad(object sender, EventArgs e)
         {
+            AngularFreqTextBox.Text = 10.ToString();
         }
 
         private void FileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,6 +135,15 @@ namespace PassiveComponentsView
             iElementBindingSource.Add(new Resistor("Резистор ", 91.3, 10));
             iElementBindingSource.Add(new Capacitor("Конденсатор ", 1.9, 10));
             iElementBindingSource.Add(new Inductor("Катушка ", 23, 10));
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            var form = new SearchForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
     }
 }

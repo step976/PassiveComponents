@@ -134,6 +134,7 @@
             this.SearchButton.TabIndex = 9;
             this.SearchButton.Text = "Поиск";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // AutoCreateButton
             // 
