@@ -8,6 +8,9 @@ namespace PassiveComponentsView
 {
     public partial class AddForm : Form
     {
+        /// <summary>
+        /// Создание или изменение элемента
+        /// </summary>
         public IElement Element
         {
             get
@@ -86,7 +89,11 @@ namespace PassiveComponentsView
         private void ComboBoxSelectSelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
+        /// <summary>
+        /// Кнопка ОК
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonOk_Click(object sender, EventArgs e)
         {
             try
@@ -104,7 +111,11 @@ namespace PassiveComponentsView
             DialogResult = DialogResult.OK;
             Close();
         }
-
+        /// <summary>
+        /// Кнопка Отмена
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;

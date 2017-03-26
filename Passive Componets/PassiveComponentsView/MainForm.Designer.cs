@@ -188,6 +188,7 @@
             // 
             // elementDataGridView
             // 
+            this.elementDataGridView.AllowUserToAddRows = false;
             this.elementDataGridView.AllowUserToDeleteRows = false;
             this.elementDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 

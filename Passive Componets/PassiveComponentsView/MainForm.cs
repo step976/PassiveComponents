@@ -32,7 +32,11 @@ namespace PassiveComponentsView
         {
             Application.Exit();
         }
-
+        /// <summary>
+        /// Добавление объекта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddElement_Click(object sender, EventArgs e)
         {
             var form = new AddForm();
@@ -41,12 +45,20 @@ namespace PassiveComponentsView
                 iElementBindingSource.Add(form.Element);
             }
         }
-
+        /// <summary>
+        /// Удаление объектов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveElement_Click(object sender, EventArgs e)
         {
             iElementBindingSource.RemoveCurrent();
         }
-
+        /// <summary>
+        /// Вычисление сопротивления
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             iElementBindingSource.DataSource = null;
@@ -56,7 +68,11 @@ namespace PassiveComponentsView
             }
             iElementBindingSource.DataSource = Elements;
         }
-
+        /// <summary>
+        /// Изменение объектов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModifyElement_Click(object sender, EventArgs e)
         {
             int index = elementDataGridView.SelectedCells[0].RowIndex;
@@ -70,7 +86,11 @@ namespace PassiveComponentsView
                 iElementBindingSource.Insert(index, form.Element);
             }
         }
-
+        /// <summary>
+        /// Сохранение 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Elements.Count != 0 )
@@ -90,7 +110,11 @@ namespace PassiveComponentsView
                 MessageBox.Show(@"Ошибка. Файл не може быть пустым");
             }
         }
-
+        /// <summary>
+        /// Открытие
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
@@ -100,7 +124,11 @@ namespace PassiveComponentsView
                 iElementBindingSource.DataSource = Elements;
             }
         }
-
+        /// <summary>
+        /// Автозаполнение таблицы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AutoCreateButton_Click(object sender, EventArgs e)
         {
             iElementBindingSource.Add(new Resistor("Резистор ", 91.3, 10));

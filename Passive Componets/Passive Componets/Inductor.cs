@@ -84,10 +84,6 @@ namespace Passive_Componets
             {
                 return GetImpedance();
             }
-            set
-            {
-               
-            }
         }
 
         /// <summary>
