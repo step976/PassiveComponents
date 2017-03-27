@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassiveComponetsModel", "Passive Componets\PassiveComponetsModel.csproj", "{CDF53759-D94B-40C3-A668-F8D6A8CAA20D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassiveComponentsModel", "Passive Componets\PassiveComponentsModel.csproj", "{CDF53759-D94B-40C3-A668-F8D6A8CAA20D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassiveComponentsView", "PassiveComponentsView\PassiveComponentsView.csproj", "{D261321F-0878-4CF4-BF66-1F23B4D9E686}"
 EndProject

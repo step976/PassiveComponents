@@ -28,160 +28,125 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ElementComboBoxSelect = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.NominalLabel = new System.Windows.Forms.Label();
             this.NameElementTextBox = new System.Windows.Forms.TextBox();
             this.NominalTextBox = new System.Windows.Forms.TextBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
             this.SelectElement = new System.Windows.Forms.Label();
-            this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.resistorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource)).BeginInit();
+            this.ButtonCancel = new System.Windows.Forms.Button();
+            this.ButtonOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.ElementComboBoxSelect);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.NameElementTextBox);
-            this.groupBox1.Controls.Add(this.NominalTextBox);
-            this.groupBox1.Controls.Add(this.buttonCancel);
-            this.groupBox1.Controls.Add(this.buttonOK);
-            this.groupBox1.Controls.Add(this.SelectElement);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 328);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
             // 
             // ElementComboBoxSelect
             // 
             this.ElementComboBoxSelect.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ElementComboBoxSelect.Dock = System.Windows.Forms.DockStyle.Left;
             this.ElementComboBoxSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ElementComboBoxSelect.Items.AddRange(new object[] {
             "Резистор",
             "Конденсатор",
             "Катушка индуктивности"});
-            this.ElementComboBoxSelect.Location = new System.Drawing.Point(3, 29);
+            this.ElementComboBoxSelect.Location = new System.Drawing.Point(5, 21);
             this.ElementComboBoxSelect.Name = "ElementComboBoxSelect";
-            this.ElementComboBoxSelect.Size = new System.Drawing.Size(158, 21);
+            this.ElementComboBoxSelect.Size = new System.Drawing.Size(127, 21);
             this.ElementComboBoxSelect.TabIndex = 9;
             this.ElementComboBoxSelect.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSelectSelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-3, 131);
+            this.label2.Location = new System.Drawing.Point(2, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(207, 13);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Введите уникальное имя для элемента";
+            this.label2.Text = "Имя:";
             // 
-            // label1
+            // NominalLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Введите его номинал";
+            this.NominalLabel.AutoSize = true;
+            this.NominalLabel.Location = new System.Drawing.Point(2, 45);
+            this.NominalLabel.Name = "NominalLabel";
+            this.NominalLabel.Size = new System.Drawing.Size(56, 13);
+            this.NominalLabel.TabIndex = 7;
+            this.NominalLabel.Text = "Номинал:";
             // 
             // NameElementTextBox
             // 
-            this.NameElementTextBox.Location = new System.Drawing.Point(0, 147);
+            this.NameElementTextBox.Location = new System.Drawing.Point(5, 100);
             this.NameElementTextBox.Name = "NameElementTextBox";
-            this.NameElementTextBox.Size = new System.Drawing.Size(158, 20);
+            this.NameElementTextBox.Size = new System.Drawing.Size(127, 20);
             this.NameElementTextBox.TabIndex = 6;
+            this.NameElementTextBox.TextChanged += new System.EventHandler(this.NameElementTextBox_TextChanged);
             // 
             // NominalTextBox
             // 
-            this.NominalTextBox.Location = new System.Drawing.Point(3, 84);
+            this.NominalTextBox.Location = new System.Drawing.Point(5, 61);
             this.NominalTextBox.Name = "NominalTextBox";
-            this.NominalTextBox.Size = new System.Drawing.Size(158, 20);
+            this.NominalTextBox.Size = new System.Drawing.Size(53, 20);
             this.NominalTextBox.TabIndex = 5;
             this.NominalTextBox.TextChanged += new System.EventHandler(this.NominalTextBox_TextChanged);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonCancel.Location = new System.Drawing.Point(124, 283);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(57, 23);
-            this.buttonCancel.TabIndex = 4;
-            this.buttonCancel.Text = "Отмена";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonOK.Location = new System.Drawing.Point(14, 283);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(57, 23);
-            this.buttonOK.TabIndex = 3;
-            this.buttonOK.Text = "ОК";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.ButtonOk_Click);
             // 
             // SelectElement
             // 
             this.SelectElement.AutoSize = true;
-            this.SelectElement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SelectElement.Location = new System.Drawing.Point(3, 16);
+            this.SelectElement.Location = new System.Drawing.Point(2, 5);
             this.SelectElement.Name = "SelectElement";
-            this.SelectElement.Size = new System.Drawing.Size(103, 13);
+            this.SelectElement.Size = new System.Drawing.Size(81, 13);
             this.SelectElement.TabIndex = 2;
-            this.SelectElement.Text = "Выберите элемент";
-            this.SelectElement.Click += new System.EventHandler(this.SelectElement_Click);
+            this.SelectElement.Text = "Тип элемента:";
             // 
-            // iElementBindingSource
+            // ButtonCancel
             // 
-            this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
+            this.ButtonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonCancel.Location = new System.Drawing.Point(86, 126);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(75, 21);
+            this.ButtonCancel.TabIndex = 4;
+            this.ButtonCancel.Text = "Отмена";
+            this.ButtonCancel.UseVisualStyleBackColor = true;
+            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
-            // resistorBindingSource
+            // ButtonOK
             // 
-            this.resistorBindingSource.DataSource = typeof(Passive_Componets.Resistor);
+            this.ButtonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonOK.Location = new System.Drawing.Point(5, 126);
+            this.ButtonOK.Name = "ButtonOK";
+            this.ButtonOK.Size = new System.Drawing.Size(75, 21);
+            this.ButtonOK.TabIndex = 3;
+            this.ButtonOK.Text = "ОК";
+            this.ButtonOK.UseVisualStyleBackColor = true;
+            this.ButtonOK.Click += new System.EventHandler(this.ButtonOk_Click);
             // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(229, 352);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(167, 159);
+            this.Controls.Add(this.NominalLabel);
+            this.Controls.Add(this.ElementComboBoxSelect);
+            this.Controls.Add(this.NominalTextBox);
+            this.Controls.Add(this.SelectElement);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ButtonOK);
+            this.Controls.Add(this.ButtonCancel);
+            this.Controls.Add(this.NameElementTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddForm";
-            this.Text = "Добавить элемент";
-            this.Load += new System.EventHandler(this.AddFormLoad);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label SelectElement;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button ButtonCancel;
+        private System.Windows.Forms.Button ButtonOK;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NominalLabel;
         private System.Windows.Forms.TextBox NameElementTextBox;
         private System.Windows.Forms.TextBox NominalTextBox;
-        private System.Windows.Forms.BindingSource iElementBindingSource;
-        private System.Windows.Forms.BindingSource resistorBindingSource;
         private System.Windows.Forms.ComboBox ElementComboBoxSelect;
     }
 }

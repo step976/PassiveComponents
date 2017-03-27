@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
@@ -7,6 +8,11 @@ using Passive_Componets;
 
 namespace PassiveComponentsView
 {
+
+    #region
+
+    #endregion
+
     public partial class MainForm : Form
     {
         private List<IElement> Elements;
@@ -20,24 +26,11 @@ namespace PassiveComponentsView
             iElementBindingSource.DataSource = Elements;
         }
 
-        private void MainFormLoad(object sender, EventArgs e)
-        {
-            AngularFreqTextBox.Text = 10.ToString();
-        }
-
-        private void FileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
-        /// <summary>
-        /// Добавление объекта
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void AddElement_Click(object sender, EventArgs e)
         {
             var form = new AddForm();
@@ -46,37 +39,25 @@ namespace PassiveComponentsView
                 iElementBindingSource.Add(form.Element);
             }
         }
-        /// <summary>
-        /// Удаление объектов
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void RemoveElement_Click(object sender, EventArgs e)
         {
             iElementBindingSource.RemoveCurrent();
         }
-        /// <summary>
-        /// Вычисление сопротивления
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             iElementBindingSource.DataSource = null;
-            foreach (IElement i in Elements )
+            foreach (IElement i in Elements)
             {
                 i.Freq = Convert.ToDouble(AngularFreqTextBox.Text);
             }
             iElementBindingSource.DataSource = Elements;
         }
-        /// <summary>
-        /// Изменение объектов
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void ModifyElement_Click(object sender, EventArgs e)
         {
-            int index = elementDataGridView.SelectedCells[0].RowIndex;
+            int index = ElementDataGridView.SelectedCells[0].RowIndex;
             var form = new AddForm
                        {
                                Element = Elements[index]
@@ -87,14 +68,10 @@ namespace PassiveComponentsView
                 iElementBindingSource.Insert(index, form.Element);
             }
         }
-        /// <summary>
-        /// Сохранение 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Elements.Count != 0 )
+            if ( Elements.Count != 0 )
             {
                 var ofd = new SaveFileDialog
                           {
@@ -111,11 +88,7 @@ namespace PassiveComponentsView
                 MessageBox.Show(@"Ошибка. Файл не може быть пустым");
             }
         }
-        /// <summary>
-        /// Открытие
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
@@ -125,11 +98,7 @@ namespace PassiveComponentsView
                 iElementBindingSource.DataSource = Elements;
             }
         }
-        /// <summary>
-        /// Автозаполнение таблицы
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void AutoCreateButton_Click(object sender, EventArgs e)
         {
             iElementBindingSource.Add(new Resistor("Резистор ", 91.3, 10));
@@ -139,11 +108,31 @@ namespace PassiveComponentsView
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            var form = new SearchForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            if ( SearchTextBox.Text != "" )
             {
-                
+                for (var i = 0; i < ElementDataGridView.RowCount; i++)
+                {
+                    ElementDataGridView.Rows[i].Selected = false;
+                    for (var j = 0; j < ElementDataGridView.ColumnCount; j++)
+                    {
+                        if ( ElementDataGridView.Rows[i].Cells[j].Value == null )
+                        {
+                            continue;
+                        }
+                        if ( !ElementDataGridView.Rows[i].Cells[j].Value.ToString().Contains(SearchTextBox.Text) )
+                        {
+                            continue;
+                        }
+                        ElementDataGridView.Rows[i].Selected = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Введите значение поиска");
             }
         }
     }
 }
+

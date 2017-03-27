@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
-
 using Passive_Componets;
 
 namespace PassiveComponentsView
 {
     public partial class AddForm : Form
     {
+        private IElement _element;
+
         /// <summary>
         /// Создание или изменение элемента
         /// </summary>
@@ -15,38 +16,25 @@ namespace PassiveComponentsView
         {
             get
             {
-                IElement unit = null;
                 if ( ElementComboBoxSelect.SelectedIndex == 0 )
                 {
-                    var resistor = new Resistor
-                                   {
-                                           Freq = Convert.ToDouble(10),
-                                           Value = Convert.ToDouble(NominalTextBox.Text),
-                                           UniqueName = Convert.ToString(NameElementTextBox.Text)
-                                   };
-                    unit = resistor;
+                    var resistor = new Resistor();
+                    _element = resistor;
                 }
                 else if ( ElementComboBoxSelect.SelectedIndex == 1 )
                 {
-                    var capacitor = new Capacitor
-                                    {
-                                            Value = Convert.ToDouble(NominalTextBox.Text),
-                                            Freq = Convert.ToDouble(10),
-                                            UniqueName = Convert.ToString(NameElementTextBox.Text)
-                                    };
-                    unit = capacitor;
+                    var capacitor = new Capacitor();
+                    _element = capacitor;
                 }
                 else if ( ElementComboBoxSelect.SelectedIndex == 2 )
                 {
-                    var inductor = new Inductor
-                                   {
-                                           Freq = Convert.ToDouble(10),
-                                           Value = Convert.ToDouble(NominalTextBox.Text),
-                                           UniqueName = Convert.ToString(NameElementTextBox.Text)
-                                   };
-                    unit = inductor;
+                    var inductor = new Inductor();
+                    _element = inductor;
                 }
-                return unit;
+                _element.Freq = Convert.ToDouble(10);
+                _element.Value = Convert.ToDouble(NominalTextBox.Text);
+                _element.UniqueName = Convert.ToString(NameElementTextBox.Text);
+                return _element;
             }
             set
             {
@@ -74,6 +62,10 @@ namespace PassiveComponentsView
                     NominalTextBox.Text = inductor.Value.ToString(CultureInfo.InvariantCulture);
                     NameElementTextBox.Text = inductor.UniqueName;
                 }
+                else
+                {
+                    throw new ArgumentException("Данный тип элемента не поддерживается данной формой.");
+                }
             }
         }
 
@@ -82,54 +74,49 @@ namespace PassiveComponentsView
             InitializeComponent();
         }
 
-        private void AddFormLoad(object sender, EventArgs e)
-        {
-        }
-
         private void ComboBoxSelectSelectedIndexChanged(object sender, EventArgs e)
         {
+            if ( ElementComboBoxSelect.SelectedIndex == 0 )
+            {
+                NominalLabel.Text = @"Введите его номинал, Ом:";
+            }
+            if ( ElementComboBoxSelect.SelectedIndex == 1 )
+            {
+                NominalLabel.Text = @"Введите его номинал, Ф:";
+            }
+            if ( ElementComboBoxSelect.SelectedIndex == 2 )
+            {
+                NominalLabel.Text = @"Введите его номинал, Гн:";
+            }
         }
-        /// <summary>
-        /// Кнопка ОК
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void ButtonOk_Click(object sender, EventArgs e)
         {
-            try
-            {
-                IElement element = Element;
-            }
-            catch ( FormatException fe )
-            {
-                MessageBox.Show(fe.Message, @"Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            catch ( ArgumentException fe )
-            {
-                MessageBox.Show(fe.Message, @"Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            // метод добавить
             DialogResult = DialogResult.OK;
             Close();
         }
-        /// <summary>
-        /// Кнопка Отмена
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
 
-        private void SelectElement_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void NominalTextBox_TextChanged(object sender, EventArgs e)
         {
+            
+            {
+                throw new ArgumentException("Поле не может быть пустым.");
+            }
+        }
 
+        private void NameElementTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+            {
+                throw new ArgumentException("Поле не может быть пустым.");
+            }
         }
     }
 }
