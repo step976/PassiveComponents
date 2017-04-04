@@ -80,11 +80,11 @@ namespace PassiveComponentsView
             {
                 NominalLabel.Text = @"Введите его номинал, Ом:";
             }
-            if ( ElementComboBoxSelect.SelectedIndex == 1 )
+            else if ( ElementComboBoxSelect.SelectedIndex == 1 )
             {
                 NominalLabel.Text = @"Введите его номинал, Ф:";
             }
-            if ( ElementComboBoxSelect.SelectedIndex == 2 )
+           else  if ( ElementComboBoxSelect.SelectedIndex == 2 )
             {
                 NominalLabel.Text = @"Введите его номинал, Гн:";
             }

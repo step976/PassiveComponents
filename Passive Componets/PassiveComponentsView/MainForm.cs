@@ -75,7 +75,7 @@ namespace PassiveComponentsView
             {
                 var ofd = new SaveFileDialog
                           {
-                                  Filter = @"txt files (*.dat)|*.dat",
+                                  Filter = @"dat files (*.dat)|*.dat",
                                   RestoreDirectory = true
                           };
                 if ( !(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel) )
