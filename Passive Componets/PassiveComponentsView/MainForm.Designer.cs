@@ -44,12 +44,12 @@
             this.AngularFreqTextBox = new System.Windows.Forms.TextBox();
             this.ModifyElementButton = new System.Windows.Forms.Button();
             this.ElementDataGridView = new System.Windows.Forms.DataGridView();
+            this.RemoveElementButton = new System.Windows.Forms.Button();
+            this.AddElementButton = new System.Windows.Forms.Button();
             this.UniqueNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImpedanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RemoveElementButton = new System.Windows.Forms.Button();
-            this.AddElementButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElementDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).BeginInit();
@@ -79,27 +79,28 @@
             // CreateToolStripMenuItem
             // 
             this.CreateToolStripMenuItem.Name = "CreateToolStripMenuItem";
-            this.CreateToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.CreateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.CreateToolStripMenuItem.Text = "Создать";
+            this.CreateToolStripMenuItem.Click += new System.EventHandler(this.CreateToolStripMenuItem_Click);
             // 
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.OpenToolStripMenuItem.Text = "Открыть";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.SaveToolStripMenuItem.Text = "Сохранить";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ExitToolStripMenuItem.Text = "Выход";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -193,8 +194,31 @@
             this.ElementDataGridView.Location = new System.Drawing.Point(1, 27);
             this.ElementDataGridView.Name = "ElementDataGridView";
             this.ElementDataGridView.ReadOnly = true;
+            this.ElementDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ElementDataGridView.Size = new System.Drawing.Size(737, 288);
             this.ElementDataGridView.TabIndex = 3;
+            // 
+            // RemoveElementButton
+            // 
+            this.RemoveElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveElementButton.Location = new System.Drawing.Point(174, 334);
+            this.RemoveElementButton.Name = "RemoveElementButton";
+            this.RemoveElementButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveElementButton.TabIndex = 2;
+            this.RemoveElementButton.Text = "Удалить";
+            this.RemoveElementButton.UseVisualStyleBackColor = true;
+            this.RemoveElementButton.Click += new System.EventHandler(this.RemoveElement_Click);
+            // 
+            // AddElementButton
+            // 
+            this.AddElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddElementButton.Location = new System.Drawing.Point(12, 334);
+            this.AddElementButton.Name = "AddElementButton";
+            this.AddElementButton.Size = new System.Drawing.Size(75, 23);
+            this.AddElementButton.TabIndex = 1;
+            this.AddElementButton.Text = "Добавить";
+            this.AddElementButton.UseVisualStyleBackColor = true;
+            this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
             // 
             // UniqueNameDataGridViewTextBoxColumn
             // 
@@ -220,28 +244,6 @@
             // iElementBindingSource
             // 
             this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
-            // 
-            // RemoveElementButton
-            // 
-            this.RemoveElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RemoveElementButton.Location = new System.Drawing.Point(174, 334);
-            this.RemoveElementButton.Name = "RemoveElementButton";
-            this.RemoveElementButton.Size = new System.Drawing.Size(75, 23);
-            this.RemoveElementButton.TabIndex = 2;
-            this.RemoveElementButton.Text = "Удалить";
-            this.RemoveElementButton.UseVisualStyleBackColor = true;
-            this.RemoveElementButton.Click += new System.EventHandler(this.RemoveElement_Click);
-            // 
-            // AddElementButton
-            // 
-            this.AddElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddElementButton.Location = new System.Drawing.Point(12, 334);
-            this.AddElementButton.Name = "AddElementButton";
-            this.AddElementButton.Size = new System.Drawing.Size(75, 23);
-            this.AddElementButton.TabIndex = 1;
-            this.AddElementButton.Text = "Добавить";
-            this.AddElementButton.UseVisualStyleBackColor = true;
-            this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
             // 
             // MainForm
             // 

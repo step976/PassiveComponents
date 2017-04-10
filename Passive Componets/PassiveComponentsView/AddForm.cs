@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+
 using Passive_Componets;
 
 namespace PassiveComponentsView
@@ -84,12 +85,12 @@ namespace PassiveComponentsView
             {
                 NominalLabel.Text = @"Введите его номинал, Ф:";
             }
-           else  if ( ElementComboBoxSelect.SelectedIndex == 2 )
+            else if ( ElementComboBoxSelect.SelectedIndex == 2 )
             {
                 NominalLabel.Text = @"Введите его номинал, Гн:";
             }
         }
-
+   
         private void ButtonOk_Click(object sender, EventArgs e)
         {
             // метод добавить
@@ -105,17 +106,23 @@ namespace PassiveComponentsView
 
         private void NominalTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-            {
+            /*  {
                 throw new ArgumentException("Поле не может быть пустым.");
-            }
+            }*/
         }
 
         private void NameElementTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-            {
+            /* {
                 throw new ArgumentException("Поле не может быть пустым.");
+            }*/
+        }
+
+        private void NominalTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != ',')
+            {
+                e.Handled = true;
             }
         }
     }

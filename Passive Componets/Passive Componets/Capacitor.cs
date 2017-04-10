@@ -71,7 +71,7 @@ namespace Passive_Componets
         }
 
         /// <summary>
-        /// Уникальное имя для элемента списка.
+        /// Имя для элемента списка.
         /// </summary>
         public string UniqueName { get; set; }
 
@@ -86,10 +86,9 @@ namespace Passive_Componets
             }
             set
             {
-                if (value >= 0)
+                if ( value >= 0 )
                 {
                     _freq = value;
-
                 }
                 else
                 {

@@ -85,6 +85,7 @@
             this.NominalTextBox.Size = new System.Drawing.Size(53, 20);
             this.NominalTextBox.TabIndex = 5;
             this.NominalTextBox.TextChanged += new System.EventHandler(this.NominalTextBox_TextChanged);
+            this.NominalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NominalTextBox_KeyPress);
             // 
             // SelectElement
             // 

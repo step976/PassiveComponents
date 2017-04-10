@@ -15,15 +15,15 @@ namespace PassiveComponentsView
 
     public partial class MainForm : Form
     {
-        private List<IElement> Elements;
+        private List<IElement> _elements;
         private BinaryFormatter _formatter = new BinaryFormatter();
 
         public MainForm()
         {
             InitializeComponent();
             CenterToScreen();
-            Elements = new List<IElement>();
-            iElementBindingSource.DataSource = Elements;
+            _elements = new List<IElement>();
+            iElementBindingSource.DataSource = _elements;
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,36 +42,53 @@ namespace PassiveComponentsView
 
         private void RemoveElement_Click(object sender, EventArgs e)
         {
-            iElementBindingSource.RemoveCurrent();
+            if ( iElementBindingSource.Current != null )
+            {
+                foreach (DataGridViewRow row in ElementDataGridView.SelectedRows)
+                {
+                    iElementBindingSource.RemoveAt(row.Index);
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Вы не выбрали строку которую хотите удалить", @"Ошибка!");
+            }
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             iElementBindingSource.DataSource = null;
-            foreach (IElement i in Elements)
+            foreach (IElement i in _elements)
             {
                 i.Freq = Convert.ToDouble(AngularFreqTextBox.Text);
             }
-            iElementBindingSource.DataSource = Elements;
+            iElementBindingSource.DataSource = _elements;
         }
 
         private void ModifyElement_Click(object sender, EventArgs e)
         {
-            int index = ElementDataGridView.SelectedCells[0].RowIndex;
-            var form = new AddForm
-                       {
-                               Element = Elements[index]
-                       };
-            if ( form.ShowDialog() == DialogResult.OK )
+            if ( iElementBindingSource.Current == null )
             {
-                iElementBindingSource.RemoveAt(index);
-                iElementBindingSource.Insert(index, form.Element);
+                MessageBox.Show(@"Вы не выбрали строки для изменения", @"Ошибка!");
+            }
+            else
+            {
+                int index = ElementDataGridView.SelectedCells[0].RowIndex;
+                var form = new AddForm
+                           {
+                                   Element = _elements[index]
+                           };
+                if ( form.ShowDialog() == DialogResult.OK )
+                {
+                    iElementBindingSource.RemoveAt(index);
+                    iElementBindingSource.Insert(index, form.Element);
+                }
             }
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( Elements.Count != 0 )
+            if ( _elements.Count != 0 )
             {
                 var ofd = new SaveFileDialog
                           {
@@ -80,7 +97,7 @@ namespace PassiveComponentsView
                           };
                 if ( !(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel) )
                 {
-                    Serialization.Serialize(ofd.FileName, Elements);
+                    Serialization.Serialize(ofd.FileName, _elements);
                 }
             }
             else
@@ -94,8 +111,8 @@ namespace PassiveComponentsView
             var ofd = new OpenFileDialog();
             if ( !(ofd.FileName == null || ofd.ShowDialog() == DialogResult.Cancel) )
             {
-                Elements = Serialization.Deserialize(ofd.FileName);
-                iElementBindingSource.DataSource = Elements;
+                _elements = Serialization.Deserialize(ofd.FileName);
+                iElementBindingSource.DataSource = _elements;
             }
         }
 
@@ -130,9 +147,14 @@ namespace PassiveComponentsView
             }
             else
             {
-                MessageBox.Show(@"Введите значение поиска");
+                MessageBox.Show(@"Введите значение поиска", @"Ошибка!");
             }
+        }
+
+        private void CreateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _elements= new List<IElement>();
+            iElementBindingSource.DataSource = _elements;
         }
     }
 }
-
