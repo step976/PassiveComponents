@@ -8,6 +8,6 @@ namespace UnitTests.PassiveComponentsModel
     [TestFixture]
     public class InductorTest
     {
-         
+       
     }
 }

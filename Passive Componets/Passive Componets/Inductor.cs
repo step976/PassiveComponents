@@ -27,7 +27,6 @@ namespace Passive_Componets
         /// <param name="freq">Угловая частота</param>
         public Inductor(string name, double value,  double freq)
         {
-            UniqueName = name;
             Value = value;
             Freq = freq;
         }
@@ -44,21 +43,8 @@ namespace Passive_Componets
         /// </summary>
         public double Value
         {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                if ( value >= 0 )
-                {
-                    _value = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Некорректно введена индуктивность");
-                }
-            }
+            get { return _value; }
+            set { _value = ValueChecker.CheckValue(value); }
         }
 
         /// <summary>
@@ -71,9 +57,9 @@ namespace Passive_Componets
         }
 
         /// <summary>
-        /// Уникальное имя для элемента списка.
+        /// Имя для элемента списка.
         /// </summary>
-        public string UniqueName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Расчет комплексого сопротивления для катушки индуктивности.
@@ -91,23 +77,8 @@ namespace Passive_Componets
         /// </summary>
         public double Freq
         {
-            get
-            {
-                return _freq;
-            }
-            set
-            {
-                if ( value >= 0 )
-                {
-                    _freq = value;
-
-                }
-                else
-                {
-                    throw new ArgumentException("Некорректно введена частота");
-                }
-                
-            }
+            get { return _freq; }
+            set { _freq = FreqChecker.CheckFreq(value); }
         }
     }
 }

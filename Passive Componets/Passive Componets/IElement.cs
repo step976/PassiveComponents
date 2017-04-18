@@ -19,9 +19,9 @@ namespace Passive_Componets
         double Value { get; set; }
 
         /// <summary>
-        /// Уникальное имя для элемента списка.
+        /// Имя для элемента списка.
         /// </summary>
-        string UniqueName { get; set; }
+        string Name { get; set; }
 
         /// <summary>
         /// Расчет комплексого сопротивления.

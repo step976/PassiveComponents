@@ -44,12 +44,12 @@
             this.AngularFreqTextBox = new System.Windows.Forms.TextBox();
             this.ModifyElementButton = new System.Windows.Forms.Button();
             this.ElementDataGridView = new System.Windows.Forms.DataGridView();
+            this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RemoveElementButton = new System.Windows.Forms.Button();
             this.AddElementButton = new System.Windows.Forms.Button();
-            this.UniqueNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImpedanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElementDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iElementBindingSource)).BeginInit();
@@ -79,28 +79,28 @@
             // CreateToolStripMenuItem
             // 
             this.CreateToolStripMenuItem.Name = "CreateToolStripMenuItem";
-            this.CreateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CreateToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.CreateToolStripMenuItem.Text = "Создать";
             this.CreateToolStripMenuItem.Click += new System.EventHandler(this.CreateToolStripMenuItem_Click);
             // 
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.OpenToolStripMenuItem.Text = "Открыть";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.SaveToolStripMenuItem.Text = "Сохранить";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ExitToolStripMenuItem.Text = "Выход";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -187,7 +187,7 @@
             this.ElementDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ElementDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ElementDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UniqueNameDataGridViewTextBoxColumn,
+            this.NameDataGridViewTextBoxColumn,
             this.ValueDataGridViewTextBoxColumn,
             this.ImpedanceDataGridViewTextBoxColumn});
             this.ElementDataGridView.DataSource = this.iElementBindingSource;
@@ -197,6 +197,10 @@
             this.ElementDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ElementDataGridView.Size = new System.Drawing.Size(737, 288);
             this.ElementDataGridView.TabIndex = 3;
+            // 
+            // iElementBindingSource
+            // 
+            this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
             // 
             // RemoveElementButton
             // 
@@ -220,12 +224,12 @@
             this.AddElementButton.UseVisualStyleBackColor = true;
             this.AddElementButton.Click += new System.EventHandler(this.AddElement_Click);
             // 
-            // UniqueNameDataGridViewTextBoxColumn
+            // NameDataGridViewTextBoxColumn
             // 
-            this.UniqueNameDataGridViewTextBoxColumn.DataPropertyName = "UniqueName";
-            this.UniqueNameDataGridViewTextBoxColumn.HeaderText = "Имя элемента";
-            this.UniqueNameDataGridViewTextBoxColumn.Name = "UniqueNameDataGridViewTextBoxColumn";
-            this.UniqueNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.NameDataGridViewTextBoxColumn.DataPropertyName = "UniqueName";
+            this.NameDataGridViewTextBoxColumn.HeaderText = "Имя элемента";
+            this.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn";
+            this.NameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ValueDataGridViewTextBoxColumn
             // 
@@ -240,10 +244,6 @@
             this.ImpedanceDataGridViewTextBoxColumn.HeaderText = "Комплексное сопротивление";
             this.ImpedanceDataGridViewTextBoxColumn.Name = "ImpedanceDataGridViewTextBoxColumn";
             this.ImpedanceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // iElementBindingSource
-            // 
-            this.iElementBindingSource.DataSource = typeof(Passive_Componets.IElement);
             // 
             // MainForm
             // 
@@ -292,10 +292,10 @@
         private System.Windows.Forms.Button AutoCreateButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.TextBox SearchTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UniqueNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem CreateToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImpedanceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripMenuItem CreateToolStripMenuItem;
     }
 }
 

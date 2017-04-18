@@ -44,10 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FreqCheckerTest.cs" />
     <Compile Include="PassiveComponentsModel\CapacitorTest.cs" />
     <Compile Include="PassiveComponentsModel\InductorTest.cs" />
     <Compile Include="PassiveComponentsModel\ResistorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueCheckerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Passive Componets\PassiveComponentsModel.csproj">

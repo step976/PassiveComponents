@@ -7,6 +7,6 @@ namespace UnitTests.PassiveComponentsModel
     [TestFixture]
     public class ResistorTest
     {
-         
+
     }
 }

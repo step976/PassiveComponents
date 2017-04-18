@@ -27,9 +27,8 @@ namespace Passive_Componets
         /// <param name="freq">Угловая частота</param>
         public Resistor(string name, double value, double freq)
         {
-            UniqueName = name;
-            Value = value;
-            Freq = freq;
+            Value = ValueChecker.CheckValue(value);
+            Freq = FreqChecker.CheckFreq(freq);
         }
 
         /// <summary>
@@ -44,21 +43,8 @@ namespace Passive_Componets
         /// </summary>
         public double Value
         {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                if ( _value >= 0 )
-                {
-                    _value = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Некорректно введено сопротивление");
-                }
-            }
+            get { return _value; }
+            set { _value = ValueChecker.CheckValue(value); }
         }
 
         /// <summary>
@@ -71,23 +57,17 @@ namespace Passive_Componets
         }
 
         /// <summary>
-        /// Уникальное имя для элемента списка.
+        /// Имя для элемента списка.
         /// </summary>
-        public string UniqueName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Угловая частота.
         /// </summary>
         public double Freq
         {
-            get
-            {
-                return _freq;
-            }
-            set
-            {
-                _freq = value;
-            }
+            get { return _freq; }
+            set { _freq = FreqChecker.CheckFreq(value); }
         }
 
         /// <summary>
@@ -95,10 +75,7 @@ namespace Passive_Componets
         /// </summary>
         public Complex Impedance
         {
-            get
-            {
-                return GetImpedance();
-            }
+            get { return GetImpedance(); }
         }
     }
 }

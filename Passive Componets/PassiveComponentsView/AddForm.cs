@@ -34,7 +34,7 @@ namespace PassiveComponentsView
                 }
                 _element.Freq = Convert.ToDouble(10);
                 _element.Value = Convert.ToDouble(NominalTextBox.Text);
-                _element.UniqueName = Convert.ToString(NameElementTextBox.Text);
+                _element.Name = Convert.ToString(NameElementTextBox.Text);
                 return _element;
             }
             set
@@ -45,7 +45,7 @@ namespace PassiveComponentsView
                     ElementComboBoxSelect.SelectedIndex = 0;
                     ElementComboBoxSelect.Enabled = false;
                     NominalTextBox.Text = res.Value.ToString(CultureInfo.InvariantCulture);
-                    NameElementTextBox.Text = res.UniqueName;
+                    NameElementTextBox.Text = res.Name;
                 }
                 else if ( value is Capacitor )
                 {
@@ -53,7 +53,7 @@ namespace PassiveComponentsView
                     ElementComboBoxSelect.Enabled = false;
                     ElementComboBoxSelect.SelectedIndex = 1;
                     NominalTextBox.Text = capacitor.Value.ToString(CultureInfo.InvariantCulture);
-                    NameElementTextBox.Text = capacitor.UniqueName;
+                    NameElementTextBox.Text = capacitor.Name;
                 }
                 else if ( value is Inductor )
                 {
@@ -61,7 +61,7 @@ namespace PassiveComponentsView
                     ElementComboBoxSelect.Enabled = false;
                     ElementComboBoxSelect.SelectedIndex = 2;
                     NominalTextBox.Text = inductor.Value.ToString(CultureInfo.InvariantCulture);
-                    NameElementTextBox.Text = inductor.UniqueName;
+                    NameElementTextBox.Text = inductor.Name;
                 }
                 else
                 {
