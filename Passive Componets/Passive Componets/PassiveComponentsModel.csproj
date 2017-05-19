@@ -44,12 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Capacitor.cs" />
-    <Compile Include="FreqChecker.cs" />
+    <Compile Include="ElementsBase.cs" />
     <Compile Include="IElement.cs" />
     <Compile Include="Inductor.cs" />
     <Compile Include="Resistor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueChecker.cs" />
+    <Compile Include="Tools\ValueChecker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

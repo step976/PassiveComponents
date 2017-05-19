@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using Passive_Componets.Tools;
 
 namespace Passive_Componets
 {
@@ -7,75 +8,45 @@ namespace Passive_Componets
     /// Класс резистора.
     /// </summary>
     [Serializable]
-    public class Resistor : IElement
+    public class Resistor : ElementsBase
     {
-        /// <summary>
-        /// Угловая частота.
-        /// </summary>
-        private double _freq;
-
-        /// <summary>
-        /// Сопротивление.
-        /// </summary>
-        private double _value;
-
+        private string _name;
         /// <summary>
         /// Конструктор резистора c параметром.
         /// </summary>
-        /// <param name="name">Уникальное имя</param>
         /// <param name="value">Сопротивление.</param>
-        /// <param name="freq">Угловая частота</param>
-        public Resistor(string name, double value, double freq)
+        public Resistor(double value)
         {
             Value = ValueChecker.CheckValue(value);
-            Freq = FreqChecker.CheckFreq(freq);
         }
 
         /// <summary>
-        /// Конструктор резистора по умолчанию.
+        /// Базовый конструктор.
         /// </summary>
         public Resistor()
         {
         }
 
         /// <summary>
-        /// Сопротивление.
-        /// </summary>
-        public double Value
-        {
-            get { return _value; }
-            set { _value = ValueChecker.CheckValue(value); }
-        }
-
-        /// <summary>
         /// Расчет комплексого сопротивления для резистора.
         /// </summary>
         /// <returns>Комплексное сопротивление резистора.</returns>
-        public Complex GetImpedance()
+        public override Complex GetImpedance(double angularFrequency)
         {
-            return new Complex(_value, 0);
+            return new Complex(Value, 0);
         }
 
-        /// <summary>
-        /// Имя для элемента списка.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Угловая частота.
-        /// </summary>
-        public double Freq
+        public override string Name
         {
-            get { return _freq; }
-            set { _freq = FreqChecker.CheckFreq(value); }
-        }
-
-        /// <summary>
-        /// Расчет комплексого сопротивления для резистора.
-        /// </summary>
-        public Complex Impedance
-        {
-            get { return GetImpedance(); }
+            get { return _name; }
+            set
+            {
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("Необходимо указать имя для элемента.");
+                }
+                _name = value;
+            }
         }
     }
 }

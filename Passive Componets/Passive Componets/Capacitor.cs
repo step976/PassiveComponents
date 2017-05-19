@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using Passive_Componets.Tools;
 
 namespace Passive_Componets
 {
@@ -7,78 +8,48 @@ namespace Passive_Componets
     ///Класс конденсатора.
     /// </summary>
     [Serializable]
-    public class Capacitor : IElement
+    public class Capacitor : ElementsBase
     {
-        /// <summary>
-        /// Угловая частота.
-        /// </summary>
-        private double _freq;
-
-        /// <summary>
-        /// Емкость кондесатора.
-        /// </summary>
-        private double _value;
-
+        private string _name;
         /// <summary>
         /// Конструктор конденсатора с параметром.
         /// </summary>
-        /// <param name="name">Уникальное имя</param>
         /// <param name="value">Емкость конденсатора.</param>
-        /// <param name="freq">Угловая частота</param>
-        public Capacitor(string name, double value, double freq)
+        public Capacitor(double value)
         {
-            Value = value;
-            Freq = freq;
+            Value = ValueChecker.CheckValue(value);
         }
 
         /// <summary>
-        /// Конструктор конденсатора по умолчанию.
+        /// Базовый конструктор.
         /// </summary>
         public Capacitor()
         {
         }
 
         /// <summary>
-        /// Емкость кондесатора.
+        /// Свойство получения имени.
         /// </summary>
-        public double Value
+        public override string Name
         {
-            get { return _value; }
-            set { _value = ValueChecker.CheckValue(value); }
+            get { return _name; }
+            set
+            {
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("Необходимо указать имя для элемента.");
+                }
+                _name = value;
+            }
         }
 
         /// <summary>
         /// Нахождение комплексого сопротивления для конденсатора.
         /// </summary>
         /// <returns>Комплексное сопротивление конденсатора.</returns>
-        public Complex GetImpedance()
+        public override Complex GetImpedance(double angularFrequency)
         {
-            return new Complex(0, -(1/((_freq*2*Math.PI)*_value)));
-        }
-
-        /// <summary>
-        /// Имя для элемента списка.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Угловая частота.
-        /// </summary>
-        public double Freq
-        {
-            get { return _freq; }
-            set { _freq = FreqChecker.CheckFreq(value); }
-        }
-
-        /// <summary>
-        /// Расчет комплексого сопротивления для конденсатора.
-        /// </summary>
-        public Complex Impedance
-        {
-            get
-            {
-                return GetImpedance();
-            }
+            return new Complex(0, -(1 / ((angularFrequency * 2 * Math.PI) * Value)));
         }
     }
 }

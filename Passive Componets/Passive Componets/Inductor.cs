@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using Passive_Componets.Tools;
 
 namespace Passive_Componets
 {
@@ -7,78 +8,45 @@ namespace Passive_Componets
     /// Класс катушки индуктивности
     /// </summary>
     [Serializable]
-    public class Inductor : IElement
+    public class Inductor : ElementsBase
     {
-        /// <summary>
-        /// Угловая частота.
-        /// </summary>
-        private double _freq;
-
-        /// <summary>
-        /// Индуктивность.
-        /// </summary>
-        private double _value;
-
+        private string _name;
         /// <summary>
         /// Конструктор катушки индуктивности с параметром.
         /// </summary>
-        /// <param name="name">Уникальное ия</param>
         /// <param name="value">Индуктивность.</param>
-        /// <param name="freq">Угловая частота</param>
-        public Inductor(string name, double value,  double freq)
+        public Inductor(double value)
         {
-            Value = value;
-            Freq = freq;
+            Value = ValueChecker.CheckValue(value);
         }
 
         /// <summary>
-        /// Конструктор катукшки индуктивности по умолчанию.
+        /// Базовый конструктор.
         /// </summary>
         public Inductor()
         {
         }
 
         /// <summary>
-        /// Индуктивность.
-        /// </summary>
-        public double Value
-        {
-            get { return _value; }
-            set { _value = ValueChecker.CheckValue(value); }
-        }
-
-        /// <summary>
         /// Нахождение комплексого сопротивления для катушки идуктивности.
         /// </summary>
+        /// <param name="angularFrequency">Угловая частота.</param>
         /// <returns>Комплексное сопротивление катушки идуктивности.</returns>
-        public Complex GetImpedance()
+        public override Complex GetImpedance(double angularFrequency)
         {
-            return new Complex(0, (_freq*2*Math.PI)*_value);
+            return new Complex(0, (angularFrequency * 2 * Math.PI) * Value);
         }
-
-        /// <summary>
-        /// Имя для элемента списка.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Расчет комплексого сопротивления для катушки индуктивности.
-        /// </summary>
-        public Complex Impedance
+        public override string Name
         {
-            get
+            get { return _name; }
+            set
             {
-                return GetImpedance();
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("Необходимо указать имя для элемента.");
+                }
+                _name = value;
             }
-        }
-
-        /// <summary>
-        /// Угловая частота.
-        /// </summary>
-        public double Freq
-        {
-            get { return _freq; }
-            set { _freq = FreqChecker.CheckFreq(value); }
         }
     }
 }

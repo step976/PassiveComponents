@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FreqCheckerTest.cs" />
     <Compile Include="PassiveComponentsModel\CapacitorTest.cs" />
     <Compile Include="PassiveComponentsModel\InductorTest.cs" />
     <Compile Include="PassiveComponentsModel\ResistorTest.cs" />

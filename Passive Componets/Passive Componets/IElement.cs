@@ -10,8 +10,9 @@ namespace Passive_Componets
         /// <summary>
         /// Получение комплексного сопротивления.
         /// </summary>
-        /// <returns>Комплексное число.</returns>
-        Complex GetImpedance();
+        /// <param name="angularFrequency">Угловая частота.</param>
+        /// <returns>Комплексное сопротивление.</returns>
+        Complex GetImpedance(double angularFrequency);
 
         /// <summary>
         /// Индуктивность, сопротивление, емкость.
@@ -22,15 +23,5 @@ namespace Passive_Componets
         /// Имя для элемента списка.
         /// </summary>
         string Name { get; set; }
-
-        /// <summary>
-        /// Расчет комплексого сопротивления.
-        /// </summary>
-        Complex Impedance { get; }
-
-        /// <summary>
-        /// Угловая частота.
-        /// </summary>
-        double Freq { get; set; }
     }
 }
